@@ -1,11 +1,11 @@
 # __ENGG1340__
-Huang Sheng, Li Yik Wai 3035566015
+*Huang Sheng, Li Yik Wai 3035566015*
 
-### **Problem Statement**
+### **1.Problem Statement**
   abcd
   
-### **Problem Setting**
+### **2.Problem Setting**
   abcd
 
-### **Problem Feature**
+### **3.Problem Feature**
   abcd
