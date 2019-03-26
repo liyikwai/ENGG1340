@@ -2,8 +2,11 @@
 *Huang Sheng 3035534103, Li Yik Wai 3035566015*
 
 ### **1.Problem Statement**
-  Nowadays, digital tools play an important role in our daily life. Many people use electronic devices to faciliate their wealth management.
-  This programme act as a accounting system to help user manage their financial statue. Through providing records of users' income and expense as well as other financial information, users can have a better understanding and management of their wealth. 
+  In recent years, as information technology rapidly develops, digital tools are widely available in various areas, including the financial sector. Multinational corporations, as well as individual citizens, are in desperate need of digital accounting systems to better facilitate their wealth management. 
+
+  Although there have been products managing users' wealth by various means, the available tools are unsatisfactory in personalization to meet some needs that users may have in the daily management of their finance, such as budget setting according to the users' income status and spending patterns. 
+
+  This programme acts as an accounting system to help users manage their financial state. By processing the records of income and expense as well as other financial information through this programme, users can have a better understanding and management of their wealth. 
   
 ### **2.Problem Setting**
   abcd
