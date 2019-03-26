@@ -2,7 +2,8 @@
 *Huang Sheng 3035534103, Li Yik Wai 3035566015*
 
 ### **1.Problem Statement**
-  abcd
+  Nowadays, digital tools play an important role in our daily life. Many people use electronic devices to faciliate their wealth management.
+  This programme act as a accounting system to help user manage their financial statue. Through providing records of users' income and expense as well as other financial information, users can have a better understanding and management of their wealth. 
   
 ### **2.Problem Setting**
   abcd
