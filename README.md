@@ -14,9 +14,9 @@
 ### **3.Program Feature**
   Functionalities
   1. Adding records of income and expense
-     - Feature:
-     - Input:
-     - Output:
+     - Feature: recording the user's monthly income and expenses
+     - Input: multiple pairs of two integer numbers indicating the userss monthly income and expenses 
+     - Output: N/A
   2. Offering basic information of the records
      - Feature:
      - Input:
