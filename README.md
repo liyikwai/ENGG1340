@@ -38,6 +38,6 @@
      - Input: At the beginning of each month, this function receives a integer that represent the estimated expense of this month. Afterward, whenever the user adding his or her expense, it will calculate the cumulative expense and check whether the expense exceeeds the budget or not.
      - Output: If the expense is less than the budget, it will give a signal of safety. Otherwise, it will give a warning. 
   7. Setting and estimating user's goal
-     - Feature: This function allows user to set up their goals. After that, it will estimate the time and money they needed to achieve their goals.
+     - Feature: This function allows user to set up their goals such as buying a property or other products. After that, it will estimate the time and money they needed to achieve their goals.
      - Input: A string representing the user's goal, an integer denoting the money they need to achieve their goal
      - Output: This function will calculate and output the two integers denoting the money and time the user still needed respectively. 
