@@ -13,41 +13,27 @@
     -Feature:
     -Input:
     -Output:
-    -Compliation: 
-    -Execution:
   2. Offering basic information of the records
     -Feature:
     -Input:
     -Output:
-    -Compliation: 
-    -Execution:
   3. Editing and deleting the records 
     -Feature:
     -Input:
     -Output:
-    -Compliation: 
-    -Execution:
   4. Viewing the records
     -Feature:
     -Input:
     -Output:
-    -Compliation: 
-    -Execution:
   5. Offering report of users’ financial state
     -Feature:
     -Input:
     -Output:
-    -Compliation: 
-    -Execution:
   6. Setting budget
     -Feature:
     -Input:
     -Output:
-    -Compliation: 
-    -Execution:
   7. Setting and estimating user's goal
     -Feature:
     -Input:
     -Output:
-    -Compliation: 
-    -Execution:
