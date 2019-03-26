@@ -18,9 +18,9 @@
      - Input: multiple pairs of two integer numbers indicating the user's monthly income and expenses 
      - Output: N/A
   2. Offering basic information of the records
-     - Feature:
-     - Input:
-     - Output:
+     - Feature: Confirm with the user on his/her input
+     - Input: N/A
+     - Output: the input before.
   3. Editing and deleting the records 
      - Feature:
      - Input:
