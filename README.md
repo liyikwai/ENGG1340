@@ -1,5 +1,5 @@
 # __ENGG1340__
-*Huang Sheng, Li Yik Wai 3035566015*
+*Huang Sheng 3035534103, Li Yik Wai 3035566015*
 
 ### **1.Problem Statement**
   abcd
