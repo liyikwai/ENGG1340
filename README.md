@@ -15,7 +15,7 @@
   Functionalities
   1. Adding records of income and expense
      - Feature: recording the user's monthly income and expenses
-     - Input: multiple pairs of three integer numbers indicating the month, the user's monthly income and expenses 
+     - Input: command 'I' or 'E' representing income or expenses, multiple combination of 5 integer numbers indicating the day, month, year and the user's income or expenses.
      - Output: N/A
   2. Offering basic information of the records
      - Feature: Confirm with the user on his/her input
