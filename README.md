@@ -23,7 +23,7 @@
      - Output: a detailed list of information containing amount, date, types of income or expense and etc.
   3. Editing and deleting the records 
      - Feature: Letting user edit or delete the records.
-     - Input: First input the letter 'e' or 'D', representing edit or delete correspondingly. For 'e', input multiple combination of 4 integer numbers indicating the day, month, year and the user's income or expenses. For 'D', input the time whose records need editing/deleting
+     - Input: First input the letter 'e' or 'd', representing edit or delete correspondingly. For 'e', input multiple combination of 4 integer numbers indicating the day, month, year and the user's income or expenses. For 'd', input the time whose records need editing/deleting
      - Output: confirmation informing the user the success or failure of his command
   4. Searching the records
      - Feature: Letting the user easily search for and review the records which s/he has input into the programme
