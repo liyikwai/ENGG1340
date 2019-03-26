@@ -15,20 +15,20 @@
   Functionalities
   1. Adding records of income and expense
      - Feature: recording the user's monthly income and expenses
-     - Input: multiple pairs of two integer numbers indicating the user's monthly income and expenses 
+     - Input: multiple pairs of three integer numbers indicating the month, the user's monthly income and expenses 
      - Output: N/A
   2. Offering basic information of the records
      - Feature: Confirm with the user on his/her input
      - Input: N/A
-     - Output: the input before.
+     - Output: the input before
   3. Editing and deleting the records 
-     - Feature:
-     - Input:
-     - Output:
-  4. Viewing the records
-     - Feature:
-     - Input:
-     - Output:
+     - Feature: Letting user edit or delete the records.
+     - Input: First input the letter 'E' or 'D', representing edit or delete correspondingly, and then the time whose records need editing/deleting
+     - Output: confirmation informing the user the success or failure of his command
+  4. Reviewing the records
+     - Feature: Letting the user easily search for and review the records which s/he has input into the programme
+     - Input: command 'R'
+     - Output: record information
   5. Offering report of users’ financial state
      - Feature:
      - Input:
