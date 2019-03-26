@@ -15,20 +15,20 @@
   Functionalities
   1. Adding records of income and expense
      - Feature: recording the user's monthly income and expenses
-     - Input: command 'I' or 'E' representing income or expenses, multiple combination of 5 integer numbers indicating the day, month, year and the user's income or expenses.
-     - Output: N/A
+     - Input: command 'I' or 'E' representing income or expenses, multiple combination of 4 integer numbers indicating the day, month, year and the user's income or expenses, a string for account code, a string income source or expense purposes.
+     - Output: Confirmation with the user on his/her input
   2. Offering basic information of the records
-     - Feature: Confirm with the user on his/her input
-     - Input: N/A
-     - Output: the input before
+     - Feature: providing detailed information of the records
+     - Input: command 'B'
+     - Output: a detailed list of information containing amount, date, types of income or expense and etc.
   3. Editing and deleting the records 
      - Feature: Letting user edit or delete the records.
-     - Input: First input the letter 'E' or 'D', representing edit or delete correspondingly, and then the time whose records need editing/deleting
+     - Input: First input the letter 'e' or 'D', representing edit or delete correspondingly. For 'e', input multiple combination of 4 integer numbers indicating the day, month, year and the user's income or expenses. For 'D', input the time whose records need editing/deleting
      - Output: confirmation informing the user the success or failure of his command
-  4. Reviewing the records
+  4. Searching the records
      - Feature: Letting the user easily search for and review the records which s/he has input into the programme
-     - Input: command 'R'
-     - Output: record information
+     - Input: command 'S', and command 'D', 'T' or 'A', representing date, time or account code, income source or expense purposes, and then input the corresponding keywords.
+     - Output: search information
   5. Offering report of users’ financial state
      - Feature:
      - Input:
