@@ -30,14 +30,14 @@
      - Input: command 'S', and command 'D', 'T' or 'A', representing date, time or account code, income source or expense purposes, and then input the corresponding keywords.
      - Output: search information
   5. Offering report of users’ financial state
-     - Feature:
-     - Input:
-     - Output:
+     - Feature: This function is to calculate different data could report user's financial situation.
+     - Input: command 'M' represent monthly income and expense. a series of integers denoting the income, expense and date.
+     - Output: integers denoting monthly income, expense, net income and percentage of different types of expenses.  
   6. Setting budget
-     - Feature:
-     - Input:
-     - Output:
+     - Feature: This function allow user to create their own budget setting.
+     - Input: At the begining of each month, this function receive a integers that represent the estimated expense of this month. Whenver the user adding his or her expense, it will calculate the cumulative expense and check whether the expense exceeed the budget or not.
+     - Output: If the expense is less than the budget, it will give a signal of safety. Otherwise, it will give a warning. 
   7. Setting and estimating user's goal
-     - Feature:
-     - Input:
-     - Output:
+     - Feature:This function allows user to set up their goals. After that, it will estimate the time and money they needed to achieve their goals.
+     - Input:A string representing user's goal, a integer denoting the money they need to achieve their goal
+     - Output:This function will calculate and output the two integers denoting the money and time respectively the user still needed. 
