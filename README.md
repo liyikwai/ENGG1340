@@ -21,7 +21,7 @@
      - Output: Confirmation with the user on his/her input
   2. Offering basic information of the records
      - Feature: providing detailed information of the records
-     - Input: command 'I'
+     - Input: command 'Info'
      - Output: a detailed list of information containing the amount, date, types of income or expense and etc.
   3. Editing and deleting the records 
      - Feature: Letting user edit or delete the records.
@@ -29,17 +29,17 @@
      - Output: confirmation informing the user the success or failure of his command
   4. Searching the records
      - Feature: Letting the user easily search for and review the records which s/he has input into the programme
-     - Input: command 'S', and command 'D', 'T' or 'A', representing date, time or account code, income source or expense purposes, and then input the corresponding keywords.
+     - Input: command 'Search', and command 'D', 'T' or 'A', representing date, time or account code, income source or expense purposes, and then input the corresponding keywords.
      - Output: search information
   5. Offering report of users’ financial state
      - Feature: This function is to calculate different data that could report the user's financial situation.
      - Input: Multiple integers income and expense of a month as well as their basic information will be received.
-     - Output: integers denoting monthly income, expense, net income and percentage of different types of expenses.  
+     - Output: A file named "Financial Report _(time)_.txt" containing integers denoting monthly income, expense, net income and percentage of different types of expenses.  
   6. Setting budget
      - Feature: This function is to allow user to create their own budget setting.
      - Input: At the beginning of each month, this function receives a integer that represent the estimated expense of this month. Afterward, whenever the user adding his or her expense, it will calculate the cumulative expense and check whether the expense exceeeds the budget or not.
      - Output: If the expense is less than the budget, it will give a signal of safety. Otherwise, it will give a warning. 
   7. Setting and estimating user's goal
      - Feature: This function allows user to set up his or her goals such as buying a property or other products. After that, it will estimate the time and money they needed to achieve the goals.
-     - Input: command 'B' represent budget setting, a string representing the user's goal and a integer denoting the money they need
+     - Input: command 'Set' represent budget setting, a string representing the user's goal and a integer denoting the money they need
      - Output: This function will calculate and output two integers denoting the money and time the user still needed respectively. 
