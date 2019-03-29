@@ -1,5 +1,5 @@
-# __ENGG1340__
-*Huang Sheng 3035534103, Li Yik Wai 3035566015*
+# __ENGG1340 Project__
+*Group 73: Huang Sheng 3035534103, Li Yik Wai 3035566015*
 
 ### **1.Problem Statement**
   In recent years, as information technology rapidly develops, digital tools are widely available in various areas, including the financial sector. Multinational corporations, as well as individual citizens, are in desperate need of digital accounting systems to better facilitate their wealth management. 
