@@ -9,7 +9,7 @@
   This programme acts as an accounting system to help users manage their financial state. By processing the records of income and expense as well as other financial information through this programme, users can have a better understanding and management of their wealth. 
   
 ### **2.Problem Setting**
-  We assume that the maximum number that the user input is less than 100000000 to avoid overflow. Besides, Income and expense received should be rounded to two decimals. In addition, the user is expected not to input negative numbers. Furthermore, the information provided by user should be meaningful and valid. For example, the user cannot input invalid dates like 32/2/2019 (32th February 2019). 
+  We assume that the maximum number of the user input is less than 100,000,000 to avoid overflow. Besides, Income and expense received should be rounded to two decimals. In addition, the user is expected not to input negative numbers. Furthermore, the information provided by user should be meaningful and valid. For example, the user cannot input invalid dates like 32/02/2019 (32nd February 2019). 
  
   We divide this problem into 7 functionalities. 
   1. _Adding records of income and expense_: This function is to record the user's monthly income and expenses. The data will be stored in two dynamic arrays income[] and expense[]. A file named "Financial_Records.txt" containing the information that the user input will be created.
@@ -30,7 +30,7 @@
   Input and output specification
   1. Adding_Records
      - _Input_: Command 'I' or 'E' representing income or expenses, multiple combinations of 3 integer numbers indicating the day, month, year and 2 double denoting the user's income or expenses, a string for account code, a string denoting income source or expense purposes. 
-     - _Output_: Confirmation with the user on his/her input.A file named "Financial_Record.txt". 2 dynamic array income[] and expense[].
+     - _Output_: Confirmation with the user on his/her input. A file named "Financial_Record.txt". 2 dynamic array income[] and expense[].
      
   2. Offering_Basic_Information
      - _Input_: Command 'INFO'. Opening file "Financial_Records.txt"
