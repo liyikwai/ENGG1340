@@ -115,7 +115,7 @@ int main() {
     cout << "R: Report" << endl;
     cout << "B: Budget Setting" << endl;
     cout << "G: Goal Setting" << endl;
-    cout << "Q: Quit" << endl;
+    cout << "Q: Quit" << endl;  //Done
     cin >> Command;
     if (Command == "Q")
       break;
