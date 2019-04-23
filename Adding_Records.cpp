@@ -25,14 +25,14 @@ account::account(){
   Expense_Info = "NULL";
 }
 
-void increase_size(account *&user, int &account_size, int n){
+void increase_size(account *&user, int &account_size){
   account *temp = new account[account_size+1];
   for (int i = 0; i < account_size; i++){
     temp[i] = user[i];
   }
   delete []user;
   user = temp;
-  account_size += n;
+  account_size += 1;
 }
 
 void Append_Records(char add, account *user, int tail){
@@ -97,7 +97,7 @@ int main(){
       Append_Records(add, user, tail);
       tail++;
       if (tail == account_size){
-        increase_size(user, account_size, 10);
+        increase_size(user, account_size);
       }
     }
   }
