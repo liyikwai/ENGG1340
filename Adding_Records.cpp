@@ -73,10 +73,10 @@ int main(){
 	int tail = 0;
 	int account_size = 10;
 	account *user = new account[account_size];
-	cout<<"??<<endl;
+	cout<<"----------------------------"<<endl;
 	cout<<"|ENGG1340 Accounting System|"<<endl;
 	cout<<"|          Group73         |"<<endl;
-	cout<<"??<<endl;
+	cout<<"----------------------------"<<endl;
 	cout<<endl;
 	while(1){
 		cout<<"Please enter: "<<endl;
