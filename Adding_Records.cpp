@@ -104,14 +104,14 @@ void Sort(date *&Date, int count){
 void Search(date *&Date, int count, int DD, int MM, int YYYY){
   for (int i=0; i<count; i++){
       if(Date[i].Day==DD && Date[i].Month==MM && Date[i].Year==YYYY){
-        if (Date[i].rec.Type == 2)
+        if (Date[i].rec.Type == 2){
           cout << "Income" << " ";
-        if (Date[i].rec.Type == 1)
+        }
+        if (Date[i].rec.Type == 1){
           cout << "Expense" << " ";
+        }
         cout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
-        return;
-      }
-      cout<<"Not Found"<<endl;
+    }
   }
 }
 int main() {
