@@ -59,6 +59,7 @@ void Append_Income(date *&Date, int count) {
   cout << "Income: " << endl;
   cin >> Income;
   cout << "Info: " << endl;
+  cout << "E: Earned Income\tF: Portfolio Income\tP: Passive Income" << endl;
   cin >> Info;
   Date[count].rec.Amount = Income;
   Date[count].rec.Type = 2;
@@ -76,6 +77,7 @@ void Append_Expense(date *&Date, int count){
   cout << "Expense: " << endl;
   cin >> Expense;
   cout << "Info: " << endl;
+  cout << "T: Transportation\tF: Food & Drinks\tL: Living & Others" << endl;
   cin >> Info;
   Date[count].rec.Amount = Expense;
   Date[count].rec.Type = 1;
@@ -104,6 +106,8 @@ int main() {
   string Command;
   int count = 0, size = 100;
   date *Date = new date[100];
+  double Budget = -1;
+  double Monthly_Balance = 0, Monthly_Income = 0, Monthly_Expense = 0;
   while(true) {
     cout << "Please enter the following commands:" << endl;
     cout << "I: Adding income" << endl; // Done
@@ -112,9 +116,9 @@ int main() {
     cout << "C: Change Records" << endl;
     cout << "D: Delete Records" << endl;
     cout << "S: Search Records" << endl;
-    cout << "R: Report" << endl;
-    cout << "B: Budget Setting" << endl;
-    cout << "G: Goal Setting" << endl;
+    cout << "R: Report" << endl; 
+    cout << "B: Budget Setting" << endl; // Need Monthly_Income
+    cout << "G: Goal Setting" << endl;   // Need Monthly_Balance
     cout << "Q: Quit" << endl;  //Done
     cin >> Command;
     if (Command == "Q")
@@ -135,6 +139,7 @@ int main() {
     }
     //C, D
     Sort(Date, count);
+    // monthly income, monthly expense, monthly balance, monthly spending compared to budget
     if (Command == "P"){
       for (int i = 0; i < count; i++){
         if (Date[i].rec.Type == 0)
@@ -148,9 +153,41 @@ int main() {
       }
       continue;
     }
-    // S, R, B, G
+    if (Command == "B"){
+      while(true){
+        cout << "Set your budget: " << endl;
+        cin >> Budget;
+        if (Budget <= Monthly_Income){
+          cout << "OK." << endl;
+          break;
+        }
+        else
+          cout << "Beyond Your financial capability! Reset your budget!" << endl;
+      }
+    }
+    if (Command == "G"){
+      double Goal, Monthly_Goal;
+      cout << "What's your goal?" << endl;
+      cin >> Goal;
+      cout << "That will take you at least " << Goal / Monthly_Balance << endl;
+      cout << "How much per month do you want to save for it?" << endl;
+      while(true){
+        if (Monthly_Balance < 0) {
+          cout << "You are bleeding money, change your spending habit first!" << endl;
+          break;
+        }
+        cin >> Monthly_Goal;
+        if(Monthly_Goal > Monthly_Balance)
+          cout << "That's beyond your financial capability!";
+        else
+          cout << "That will take you " << Goal / Monthly_Goal << "to achieve!" << endl;
+      }
+    }
+    // S, R
     
   }
   delete[] Date;
   return 0;
 }
+// Also need to do file I/O
+// Split .cpp and create makefile
