@@ -101,7 +101,19 @@ void Sort(date *&Date, int count){
         delete Temp;
       }
 }
-
+void Search(date *&Date, int count, int DD, int MM, int YYYY){
+  for (int i=0; i<count; i++){
+      if(Date[i].Day==DD && Date[i].Month==MM && Date[i].Year==YYYY){
+        if (Date[i].rec.Type == 2)
+          cout << "Income" << " ";
+        if (Date[i].rec.Type == 1)
+          cout << "Expense" << " ";
+        cout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
+        return;
+      }
+      cout<<"Not Found"<<endl;
+  }
+}
 int main() {
   string Command;
   int count = 0, size = 100;
@@ -153,6 +165,13 @@ int main() {
       }
       continue;
     }
+    if (Command == "S"){
+      int DD, MM, YYYY;
+      cout << "Please enter the date for searching: DD MM YYYY: " << endl;
+      cin >> DD >> MM >> YYYY;
+	    Search(Date, count, DD, MM, YYYY);
+    }
+
     if (Command == "B"){
       while(true){
         cout << "Set your budget: " << endl;
