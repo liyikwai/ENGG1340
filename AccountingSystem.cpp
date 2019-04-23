@@ -106,10 +106,15 @@ int main() {
   date *Date = new date[100];
   while(true) {
     cout << "Please enter the following commands:" << endl;
-    cout << "I: Adding income" << endl;
-    cout << "E: Adding Expense" << endl;
-    cout << "S: Showing Information" << endl;
-    // More to be added
+    cout << "I: Adding income" << endl; // Done
+    cout << "E: Adding Expense" << endl; // Done
+    cout << "S: Showing Information" << endl; // Done
+    cout << "C: Change Records" << endl;
+    cout << "D: Delete Records" << endl;
+    cout << "S: Search Records" << endl;
+    cout << "R: Report" << endl;
+    cout << "B: Budget Setting" << endl;
+    cout << "G: Goal Setting" << endl;
     cout << "Q: Quit" << endl;
     cin >> Command;
     if (Command == "Q")
@@ -128,6 +133,7 @@ int main() {
       count++;
       continue;
     }
+    //C, D
     Sort(Date, count);
     if (Command == "S"){
       for (int i = 0; i < count; i++){
@@ -142,7 +148,7 @@ int main() {
       }
       continue;
     }
-    // More to be added
+    // S, R, B, G
     
   }
   delete[] Date;
