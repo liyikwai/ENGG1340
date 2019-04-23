@@ -108,7 +108,7 @@ int main() {
     cout << "Please enter the following commands:" << endl;
     cout << "I: Adding income" << endl; // Done
     cout << "E: Adding Expense" << endl; // Done
-    cout << "S: Showing Information" << endl; // Done
+    cout << "P: Present Information" << endl; // Done
     cout << "C: Change Records" << endl;
     cout << "D: Delete Records" << endl;
     cout << "S: Search Records" << endl;
@@ -135,7 +135,7 @@ int main() {
     }
     //C, D
     Sort(Date, count);
-    if (Command == "S"){
+    if (Command == "P"){
       for (int i = 0; i < count; i++){
         if (Date[i].rec.Type == 0)
           break;
