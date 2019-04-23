@@ -179,8 +179,11 @@ int main() {
         cin >> Monthly_Goal;
         if(Monthly_Goal > Monthly_Balance)
           cout << "That's beyond your financial capability!";
-        else
+        else{
           cout << "That will take you " << Goal / Monthly_Goal << " months to achieve!" << endl;
+          break;
+        }
+          
       }
     }
     // S, R
