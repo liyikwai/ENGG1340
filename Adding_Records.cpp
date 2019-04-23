@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 using namespace std;
 
@@ -10,7 +11,13 @@ struct account{
 	string inc_info;
 	double exp;
 	string exp_info;
+	account();
 };
+
+account::account(){
+	inc_info="NULL";
+	exp_info="NULL";
+}
 
 void increase_size(account *&user, int &account_size, int n){
 	account *temp = new account[account_size+1];
@@ -44,6 +51,22 @@ void Append_Records(char add, account *user, int tail){
 	}
 }
 
+void Create_record(account *user, int tail){
+	ofstream fout;
+	fout.open("Financial_Record.txt");
+	if (fout.fail()){
+		exit(1);
+	}
+	for(int i=0; i<tail; i++){
+		fout<<"Date: "<<user[i].day<<"/"<<user[i].month<<"/"<<user[i].year<<endl;
+		fout<<"    Income: "<<user[i].inc<<endl;
+		fout<<"    Income remark: "<<user[i].inc_info<<endl;
+		fout<<"    Expense "<<user[i].exp<<endl;
+		fout<<"    Expense remark: "<<user[i].exp_info<<endl;
+	}
+	fout.close();
+}
+
 int main(){
 	char add;
 	double record;
@@ -72,4 +95,6 @@ int main(){
 			}
 		}
 	}
+	Create_record(user,tail);
+	delete []user;
 }
