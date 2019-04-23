@@ -169,7 +169,7 @@ int main() {
       double Goal, Monthly_Goal;
       cout << "What's your goal?" << endl;
       cin >> Goal;
-      cout << "That will take you at least " << Goal / Monthly_Balance << endl;
+      cout << "That will take you at least " << Goal / Monthly_Balance << " months!" << endl;
       cout << "How much per month do you want to save for it?" << endl;
       while(true){
         if (Monthly_Balance < 0) {
@@ -180,7 +180,7 @@ int main() {
         if(Monthly_Goal > Monthly_Balance)
           cout << "That's beyond your financial capability!";
         else
-          cout << "That will take you " << Goal / Monthly_Goal << "to achieve!" << endl;
+          cout << "That will take you " << Goal / Monthly_Goal << " months to achieve!" << endl;
       }
     }
     // S, R
