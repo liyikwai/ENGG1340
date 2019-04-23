@@ -39,7 +39,7 @@ void Append_Records(char add, account *user, int tail){
   int amount, d, m, y;
   string remark;
   cout << "Please enter the date: Day Motnth Year " << endl;
-  cin>>d>>m>>y;
+  cin >> d >> m >> y;
   cout << "Please enter the amount " << endl;
   cin >> amount;
   cout << "Please enter the remark of this record " << endl;
