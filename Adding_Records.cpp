@@ -277,7 +277,7 @@ int main() {
     }
     if (Command == "D"){ // Delete Records
       if(count == 0){
-        cout << "No record to be deleted" << endl;
+        cout<<"Warning: No record "<<endl;
         continue;
       }
       int DD0, MM0, YYYY0;
@@ -349,6 +349,10 @@ int main() {
     
     // Functions below will not change records
     if (Command == "P"){ // Present Information
+      if(count == 0){
+        cout<<"Warning: No record "<<endl;
+        continue;
+      }
       ifstream in("Financial_Record.txt");
       while(in)
         cout << (char)in.get();
@@ -398,7 +402,7 @@ int main() {
     }
     if (Command == "S"){ // Search Records
       if(count == 0){
-        cout<<"No record to be searched"<<endl;
+        cout<<"Warning: No record "<<endl;
         continue;
       }
       int DD2_1, DD2_2, MM2_1, MM2_2, YYYY2_1, YYYY2_2, Amount1, Amount2, Search_Type;
@@ -426,7 +430,7 @@ int main() {
     }
     if (Command == "R"){
       if(count == 0){
-        cout << "No record to be reported" << endl;
+        cout<<"Warning: No record "<<endl;
         continue;
       }
       Report(Date, count);
