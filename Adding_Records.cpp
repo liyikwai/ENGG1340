@@ -206,21 +206,21 @@ void Report(date *&Date, int count){
           Expense_L += Date[i].rec.Amount;
       }
     }
-    else{
+    else if (Date[i].Year != Year || i == count - 1) {
       cout << Year << " : Annual Income " << Annual_Income << endl;
       cout << Year << " : Annual Expense " << Annual_Expense <<endl;
       cout << Year << " : Annual Balance " << Annual_Income - Annual_Expense <<endl;
-      cout << Year << " : Earned Income " << Income_E << Income_E / Annual_Income << endl;
-      cout << Year << " : Porfolio Income " << Income_F << Income_F / Annual_Income << endl;
-      cout << Year << " : Passive Income " << Income_P << Income_P / Annual_Income << endl;
-      cout << Year << " : Transportation Expense " << Expense_T << Expense_T / Annual_Expense << endl;
-      cout << Year << " : Food & Drinks " << Expense_F << Expense_F / Annual_Expense << endl;
-      cout << Year << " : Living & Others " << Expense_L << Expense_L / Annual_Expense << endl;
+      cout << Year << " : Earned Income " << Income_E << " " << Income_E * 100 / Annual_Income << "%" << endl;
+      cout << Year << " : Porfolio Income " << Income_F << " " << Income_F * 100 / Annual_Income << "%" << endl;
+      cout << Year << " : Passive Income " << Income_P << " " << Income_P * 100 / Annual_Income << "%" << endl;
+      cout << Year << " : Transportation Expense " << Expense_T << " " << Expense_T * 100 / Annual_Expense << "%" << endl;
+      cout << Year << " : Food & Drinks " << Expense_F << " " << Expense_F * 100 / Annual_Expense << "%" << endl;
+      cout << Year << " : Living & Others " << Expense_L << " " << Expense_L * 100 / Annual_Expense << "%" << endl;
       Year = Date[i].Year;
       Annual_Income = Annual_Expense = 0;
       Income_E = Income_F = Income_P = 0;
       Expense_T = Expense_F = Expense_L = 0;
-       if (Date[i].rec.Type == 2){
+      if (Date[i].rec.Type == 2){
         Annual_Income += Date[i].rec.Amount;
       }
       if (Date[i].rec.Type == 1){
