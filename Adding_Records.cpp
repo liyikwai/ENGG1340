@@ -14,7 +14,7 @@ struct date {
   int Year;
   record rec;
 };
-bool operator<(const record &a, const record &b) {
+bool operator<(const record &a, const record &b) { // define a less-than < for record
   if (a.Type < b.Type)
     return true;
   if (a.Type > b.Type)
@@ -25,7 +25,7 @@ bool operator<(const record &a, const record &b) {
     return false;
   return a.Info < b.Info;
 }
-bool operator<(const date &a, const date &b) {
+bool operator<(const date &a, const date &b) { // define a less-than < for date
   if (a.Year < b.Year)
     return true;
   if (a.Year > b.Year)
@@ -40,16 +40,16 @@ bool operator<(const date &a, const date &b) {
     return false;
   return a.rec < b.rec;
 }
-void Increase_Size(date *&Date, int &size) {
+void Increase_Size(date *&Date, int &size) { // increase the size of dynamic array
   date *temp = new date [size + 10];
   for (int i = 0; i < size; i++)
     temp[i] = Date[i];
-  delete[] Date;
+  delete[] Date;  // release memory
   Date = temp;
   size += 10;
 }
 
-void Append_Income(date *&Date, int count) {
+void Append_Income(date *&Date, int count) { // Add a record of income
   int DD, MM, YYYY;
   double Income;
   string Info;
@@ -61,14 +61,14 @@ void Append_Income(date *&Date, int count) {
   cout << "Income: " << endl;
   cin >> Income;
   cout << "Info: " << endl;
-  cout << "E: Earned Income\tF: Portfolio Income\tP: Passive Income" << endl;
+  cout << "E: Earned Income\tF: Portfolio Income\tP: Passive Income" << endl; // Types of Income
   cin >> Info;
   Date[count].rec.Amount = Income;
   Date[count].rec.Type = 2;
   Date[count].rec.Info = Info;
 }
 
-void Append_Expense(date *&Date, int count){
+void Append_Expense(date *&Date, int count){ // Add a record of expense
   int DD, MM, YYYY;
   double Expense;
   string Info;
@@ -80,7 +80,7 @@ void Append_Expense(date *&Date, int count){
   cout << "Expense: " << endl;
   cin >> Expense;
   cout << "Info: " << endl;
-  cout << "T: Transportation\tF: Food & Drinks\tL: Living & Others" << endl;
+  cout << "T: Transportation\tF: Food & Drinks\tL: Living & Others" << endl; // Types of Expense
   cin >> Info;
   Date[count].rec.Amount = Expense;
   Date[count].rec.Type = 1;
@@ -94,17 +94,17 @@ void Delete(date *&Date, int &size, int DD, int MM, int YYYY, int Del_Type, int 
   for (int i = 0; i < size - 1; i++){
     if(Date[i].Day == DD && Date[i].Month == MM && Date[i].Year == YYYY)
       if (Date[i].rec.Type == Del_Type && Date[i].rec.Amount == Number && Date[i].rec.Info == Info)
-        k++;
+        k++;  // Jump over the aim
     Temp[i] = Date[k];
     k++;
   }
-  delete[] Date;
+  delete[] Date;  //release memory
   Date = Temp;
 }
 
-void Change(date *&Date, int size, int DD, int MM, int YYYY, int Change_Type, int Number, string Info){
+void Change(date *&Date, int size, int DD, int MM, int YYYY, int Change_Type, int Number, string Info){ //change from A to B
   int New_DD, New_MM, New_YYYY, New_Type, New_Amount;
-  string New_Info, New_Type_String;
+  string New_Info, New_Type_String; // B's Info
   cout << "DD MM YYYY: " << endl;
   cin >> New_DD >> New_MM >> New_YYYY;
   cout << "Change to Income or Expense (input I or E): " << endl;
@@ -123,7 +123,7 @@ void Change(date *&Date, int size, int DD, int MM, int YYYY, int Change_Type, in
     cout << "Info: T: Transportation\tF: Food & Drinks\tL: Living & Others" << endl;
     cin >> New_Info;
   }
-  int Flag = 0;
+  int Flag = 0; // to see if there is a match
   for (int i = 0; i < size; i++){
     if(Date[i].Day == DD && Date[i].Month == MM && Date[i].Year == YYYY)
       if (Date[i].rec.Type == Change_Type && Date[i].rec.Amount == Number && Date[i].rec.Info == Info){
@@ -137,7 +137,7 @@ void Change(date *&Date, int size, int DD, int MM, int YYYY, int Change_Type, in
         Flag = 1;
       }
   }
-  if (Flag == 0)
+  if (Flag == 0) //there is no match
     cout << "No such records found" << endl;
 }
 
@@ -148,22 +148,22 @@ void Sort(date *&Date, int count){
       Actual_Count = i + 1;
       break;
     }
-  }
+  } // see how many entries there are
   for (int i = 0; i < Actual_Count - 1; i++)
     for (int j = i + 1; j < Actual_Count; j++)
       if (Date[i] < Date[j]){
-        date *Temp = new date;
+        date *Temp = new date; //dynamic memory
         *Temp = Date[i];
         Date[i] = Date[j];
         Date[j] = *Temp;
-        delete Temp;
+        delete Temp;  //release memory
       }
 }
 
 void Search(date *&Date, int count, int DD1, int MM1, int YYYY1, int DD2, int MM2, int YYYY2, int Type, int Amount1, int Amount2, string Info){
-  int Flag = 0;
+  int Flag = 0; //flag if there is a match
   for (int i = 0; i < count; i++)
-    if (Date[i].Year <= YYYY2 && Date[i].Year >= YYYY1 && Date[i].Month <= MM2 && Date[i].Month >= MM1 && Date[i].Day <= DD2 && Date[i].Day >= DD1){
+    if (Date[i].Year <= YYYY2 && Date[i].Year >= YYYY1 && Date[i].Month <= MM2 && Date[i].Month >= MM1 && Date[i].Day <= DD2 && Date[i].Day >= DD1){ //if in the range
       if (Date[i].rec.Type == Type)
         if (Date[i].rec.Amount <= Amount2 && Date[i].rec.Amount >= Amount2)
           if (Date[i].rec.Info == Info){
@@ -176,11 +176,11 @@ void Search(date *&Date, int count, int DD1, int MM1, int YYYY1, int DD2, int MM
             Flag = 1;
           }
     }
-    if (Flag == 0)
+    if (Flag == 0) // not match found
       cout << "Not Found!" << endl;
 }
 
-void Report(date *&Date, int count){
+void Report(date *&Date, int count){ // produce an annual report
   double Annual_Income = 0, Annual_Expense = 0;
   double Income_E = 0, Income_F = 0, Income_P = 0;
   double Expense_T = 0, Expense_F = 0, Expense_L = 0;
@@ -193,7 +193,7 @@ void Report(date *&Date, int count){
           Income_E += Date[i].rec.Amount;
         else if (Date[i].rec.Info == "F")
           Income_F += Date[i].rec.Amount;
-        else
+        else //P
           Income_P += Date[i].rec.Amount;
       }
       if (Date[i].rec.Type == 1){
@@ -202,11 +202,11 @@ void Report(date *&Date, int count){
           Expense_T += Date[i].rec.Amount;
         else if (Date[i].rec.Info == "F")
           Expense_F += Date[i].rec.Amount;
-        else
+        else //L
           Expense_L += Date[i].rec.Amount;
       }
     }
-    if (Date[i].Year != Year || i == count - 1) {
+    if (Date[i].Year != Year || i == count - 1) { // if year changes or reaches the last one
       cout << Year << " : Annual Income " << Annual_Income << endl;
       cout << Year << " : Annual Expense " << Annual_Expense <<endl;
       cout << Year << " : Annual Balance " << Annual_Income - Annual_Expense <<endl;
@@ -216,7 +216,7 @@ void Report(date *&Date, int count){
       cout << Year << " : Transportation Expense " << Expense_T << " " << Expense_T * 100 / Annual_Expense << "%" << endl;
       cout << Year << " : Food & Drinks " << Expense_F << " " << Expense_F * 100 / Annual_Expense << "%" << endl;
       cout << Year << " : Living & Others " << Expense_L << " " << Expense_L * 100 / Annual_Expense << "%" << endl;
-      Year = Date[i].Year;
+      Year = Date[i].Year; // year changes
       Annual_Income = Annual_Expense = 0;
       Income_E = Income_F = Income_P = 0;
       Expense_T = Expense_F = Expense_L = 0;
@@ -231,7 +231,7 @@ void Report(date *&Date, int count){
 }
 
 void Calculate_Monthly(date * &Date, int count, double &Monthly_Balance, double &Monthly_Income, double &Monthly_Expense){
-  double Months = (Date[count - 1].Year - Date[0].Year) * 12 + (Date[count - 1].Month - Date[0].Month) + 1;
+  double Months = (Date[count - 1].Year - Date[0].Year) * 12 + (Date[count - 1].Month - Date[0].Month) + 1; // how many months there are
   Monthly_Income = Monthly_Expense = 0;
   for (int i = 0; i < count; i++){
     if (Date[i].rec.Type == 2)
@@ -247,7 +247,7 @@ void Calculate_Monthly(date * &Date, int count, double &Monthly_Balance, double 
 int main() {
   string Command;
   int count = 0, size = 100;
-  date *Date = new date[100];
+  date *Date = new date[100]; //initialization
   double Budget = -1;
   double Monthly_Balance = 0, Monthly_Income = 0, Monthly_Expense = 0;
   while(true) {
@@ -280,21 +280,17 @@ int main() {
       continue;
     }
 
-    if (Command != "I" && Command != "E")
+    if (Command != "I" && Command != "E") // All functions below need actual records
       if (count == 0){
         cout << "Warning: No Records!" << endl;
         continue;
       }
 
     if (Command == "D"){ // Delete Records
-      if(count == 0){
-        cout << "No record to be deleted" << endl;
-        continue;
-      }
       int DD0, MM0, YYYY0;
       double Number0;
       string Del_Type, Info0;
-      cout << "Deleting Income or Expense? I: Income E: Expense " << endl;
+      cout << "Deleting Income or Expense? I: Income E: Expense " << endl; // Search before delete
       cin >> Del_Type;
       cout << "DD MM YYYY: " << endl;
       cin >> DD0 >> MM0 >> YYYY0;
@@ -315,14 +311,10 @@ int main() {
       continue;
     }
     if (Command == "C"){
-      if(count == 0){
-        cout<<"No record to be changed"<<endl;
-        continue;
-      }
       int DD1, MM1, YYYY1;
       double Number1;
       string Change_Type, Info1;
-      cout << "Change Income or Expense? I: Income E: Expense " << endl;
+      cout << "Change Income or Expense? I: Income E: Expense " << endl; // Search before Change
       cin >> Change_Type;
       cout << "DD MM YYYY: " << endl;
       cin >> DD1 >> MM1 >> YYYY1;
@@ -342,7 +334,7 @@ int main() {
       }
       continue;
     }
-    Sort(Date, count);
+    Sort(Date, count); //Sort after all functions that could change records
     //Record_to_File 
     ofstream fout;
     fout.open("Financial_Record.txt");
@@ -359,18 +351,17 @@ int main() {
       fout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
     }
     fout.close();
-    
+    // Calculate all monthlies after all functions that could change records
     Calculate_Monthly(Date, count, Monthly_Balance, Monthly_Income, Monthly_Expense);
-    
     // Functions below will not change records
     if (Command == "P"){ // Present Information
       ifstream in("Financial_Record.txt");
-      for(string str; getline(in, str);)
+      for(string str; getline(in, str);) // line by line
         cout << str << endl;
-      cout << "";
+      cout << ""; // prevent weird characters at EOF
       continue;
     }
-    if (Command == "B"){ // Budget Setting
+    if (Command == "B"){ // Budget Setting, representing your planned monthly expense
       while(true){
         cout << "Set your monthly budget: " << endl;
         cin >> Budget;
@@ -385,7 +376,7 @@ int main() {
       }
       continue;
     }
-    if (Command == "G"){ // Goal Setting
+    if (Command == "G"){ // Goal Setting, representing your planned expense outside of budget
       if (Monthly_Balance < 0) {
         cout << "You are bleeding money, change your spending habit first!" << endl;
         continue;
@@ -393,7 +384,7 @@ int main() {
       double Goal, Monthly_Goal;
       cout << "What's your goal?" << endl;
       cin >> Goal;
-      cout << "That will take you at least " << Goal / Monthly_Balance << " months." << endl;
+      cout << "That will take you at least " << Goal / Monthly_Balance << " months." << endl; // spending all budget left
       cout << "How much per month do you want to save for it?" << endl;
       while(true){
         cin >> Monthly_Goal;
@@ -409,7 +400,7 @@ int main() {
       continue;
     }
     if (Command == "S"){ // Search Records
-      int DD2_1, DD2_2, MM2_1, MM2_2, YYYY2_1, YYYY2_2, Amount1, Amount2, Search_Type;
+      int DD2_1, DD2_2, MM2_1, MM2_2, YYYY2_1, YYYY2_2, Amount1, Amount2, Search_Type; // ranges
       string Search_Type_String, Info;
       cout << "Please enter the dates: DD1 MM1 YYYY1 DD2 MM2 YYYY2: \n(Results between these dates)" << endl;
       cin >> DD2_1 >> MM2_1 >> YYYY2_1 >> DD2_2;
@@ -432,20 +423,14 @@ int main() {
 	    Search(Date, count, DD2_1, MM2_1, YYYY2_1, DD2_2, MM2_2, YYYY2_2, Search_Type, Amount1, Amount2, Info);
       continue;
     }
-    if (Command == "R"){
-      if(count == 0){
-        cout << "No record to be reported" << endl;
-        continue;
-      }
+    if (Command == "R")
       Report(Date, count);
-    }
-    else{
-      cout<<"Command not found"<<endl;
+    else{ // No such command
+      cout << "Command not found" << endl;
       continue;
     }
   }
-  delete[] Date;
+  delete[] Date; //release memory
   return 0;
 }
 // Split .cpp and create makefile
-// Need Mistake-proof
