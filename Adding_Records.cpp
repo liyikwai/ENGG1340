@@ -176,7 +176,7 @@ int main() {
     cout << "Please enter the following commands:" << endl;
     cout << "I: Adding income" << endl; // Done
     cout << "E: Adding Expense" << endl; // Done
-    cout << "P: Present Information" << endl; // Done
+    cout << "P: Present Information and save it as a file" << endl; // Done
     cout << "C: Change Records" << endl;
     cout << "D: Delete Records" << endl;
     cout << "S: Search Records" << endl; //Done, to be Modified
@@ -262,16 +262,26 @@ int main() {
     // monthly income, monthly expense, monthly balance, monthly spending compared to budget
     
     if (Command == "P"){ // Present Information
+      ofstream fout;
+        fout.open("Financial_Record.txt");
+        if (fout.fail()){
+          exit(1);
+        }
       for (int i = 0; i < count; i++){
         if (Date[i].rec.Type == 0)
           break;
         cout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
+                fout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
         if (Date[i].rec.Type == 2)
           cout << "Income" << " ";
+                    fout << "Income" << " ";
         if (Date[i].rec.Type == 1)
           cout << "Expense" << " ";
+                    fout << "Expense" << " ";
         cout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
+                fout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
       }
+            
       continue;
     }
     if (Command == "B"){ // Budget Setting
@@ -314,6 +324,10 @@ int main() {
       continue;
     }
     // R
+    else{
+      cout<<"Command not found"<<endl;
+      continue;
+    }
   }
   delete[] Date;
   return 0;
