@@ -167,6 +167,38 @@ void Search(date *&Date, int count, int DD, int MM, int YYYY){
     }
 }
 
+void Report(date *&Date, int count){
+  ofstream fout;
+  fout.open("Report.txt");
+  if (fout.fail()){
+    exit(1);
+  }
+  int annual_income, annual_expense, net_annual_income, year=Date[0].Year;
+  for (int i=0; i<count; i++){
+    if (Date[i].Year == year){
+      if (Date[i].rec.Type == 2){
+        annual_income += Date[i].rec.Amount;
+      }
+      if (Date[i].rec.Type == 1){
+        annual_expense += Date[i].rec.Amount;
+      }
+    }
+    else{
+      fout<<year<<" : Annual income "<<annual_income<<endl;
+      fout<<year<<" : Annual expense "<<annual_expense<<endl;
+      year=Date[i].Year;
+      annual_income=0;
+      annual_expense=0;
+       if (Date[i].rec.Type == 2){
+        annual_income += Date[i].rec.Amount;
+      }
+      if (Date[i].rec.Type == 1){
+        annual_expense += Date[i].rec.Amount;
+      }
+    }
+  }
+  
+}
 int main() {
   string Command;
   int count = 0, size = 100;
@@ -177,7 +209,7 @@ int main() {
     cout << "Please enter the following commands:" << endl;
     cout << "I: Adding income" << endl; // Done
     cout << "E: Adding Expense" << endl; // Done
-    cout << "P: Present Information and save it as a file" << endl; // Done
+    cout << "P: Present Information and Save it to a file" << endl; // Done
     cout << "C: Change Records" << endl;
     cout << "D: Delete Records" << endl;
     cout << "S: Search Records" << endl; //Done, to be Modified
@@ -202,11 +234,11 @@ int main() {
       count++;
       continue;
     }
-    if (Command == "D"){ // Delete Record
-      if(count==0){
-        cout<<"No record to be deleted"<<endl;
-        continue;
-      }
+    if (Command == "D"){ // Delete Records
+            if(count==0){
+                 cout<<"No record to be deleted"<<endl;
+                 continue;
+               }
       int DD0, MM0, YYYY0;
       double Number0;
       string Del_Type, Info0;
@@ -231,10 +263,10 @@ int main() {
       continue;
     }
     if (Command == "C"){
-      if(count==0){
-        cout<<"No record to be changed"<<endl;
-        continue;
-      }
+            if(count==0){
+                 cout<<"No record to be changed"<<endl;
+                 continue;
+            }
       int DD1, MM1, YYYY1;
       double Number1;
       string Change_Type, Info1;
@@ -263,26 +295,28 @@ int main() {
     // monthly income, monthly expense, monthly balance, monthly spending compared to budget
     
     if (Command == "P"){ // Present Information
-      ofstream fout;
-        fout.open("Financial_Record.txt");
-        if (fout.fail()){
-          exit(1);
-        }
+            ofstream fout;
+               fout.open("Financial_Record.txt");
+               if (fout.fail()){
+                 exit(1);
+               }
       for (int i = 0; i < count; i++){
         if (Date[i].rec.Type == 0)
           break;
         cout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
                 fout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
-        if (Date[i].rec.Type == 2)
+        if (Date[i].rec.Type == 2){
           cout << "Income" << " ";
                     fout << "Income" << " ";
-        if (Date[i].rec.Type == 1)
+	}
+        if (Date[i].rec.Type == 1){
           cout << "Expense" << " ";
                     fout << "Expense" << " ";
+	}
         cout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
                 fout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
       }
-            
+            fout.close();
       continue;
     }
     if (Command == "B"){ // Budget Setting
@@ -325,10 +359,17 @@ int main() {
       continue;
     }
     // R
-    else{
-      cout<<"Command not found"<<endl;
-      continue;
-    }
+        if (Command == "R"){
+            if(count==0){
+                 cout<<"No record to be reported"<<endl;
+                 continue;
+            }
+            Report(Date, count);
+          }
+        else{
+            cout<<"Command not found"<<endl;
+            continue;
+          }
   }
   delete[] Date;
   return 0;
