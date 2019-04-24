@@ -284,7 +284,7 @@ int main() {
 
     if (Command == "D"){ // Delete Records
       if(count == 0){
-        cout << "No record to be deleted" << endl;
+        cout<<"Warning: No record "<<endl;
         continue;
       }
       int DD0, MM0, YYYY0;
@@ -356,12 +356,20 @@ int main() {
     
     // Functions below will not change records
     if (Command == "P"){ // Present Information
+      if(count == 0){
+        cout<<"Warning: No record "<<endl;
+        continue;
+      }
       ifstream in("Financial_Record.txt");
       while(in)
         cout << (char)in.get();
       continue;
     }
     if (Command == "B"){ // Budget Setting
+      if(count == 0){
+        cout<<"Warning: No record "<<endl;
+        continue;
+      }
       while(true){
         cout << "Set your monthly budget: " << endl;
         cin >> Budget;
@@ -375,6 +383,10 @@ int main() {
       continue;
     }
     if (Command == "G"){ // Goal Setting
+      if(count == 0){
+        cout<<"Warning: No record "<<endl;
+        continue;
+      }
       double Goal, Monthly_Goal;
       cout << "What's your goal?" << endl;
       cin >> Goal;
@@ -396,6 +408,10 @@ int main() {
       continue;
     }
     if (Command == "S"){ // Search Records
+      if(count == 0){
+        cout<<"Warning: No record "<<endl;
+        continue;
+      }
       int DD2_1, DD2_2, MM2_1, MM2_2, YYYY2_1, YYYY2_2, Amount1, Amount2, Search_Type;
       string Search_Type_String, Info;
       cout << "Please enter the dates: DD1 MM1 YYYY1 DD2 MM2 YYYY2: \n(Results between these dates)" << endl;
@@ -421,7 +437,7 @@ int main() {
     }
     if (Command == "R"){
       if(count == 0){
-        cout << "No record to be reported" << endl;
+        cout<<"Warning: No record "<<endl;
         continue;
       }
       Report(Date, count);
