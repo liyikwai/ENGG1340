@@ -233,7 +233,7 @@ int main() {
     cout << "C: Change Records" << endl; //Done
     cout << "D: Delete Records" << endl; //Done
     cout << "S: Search Records" << endl; //Done
-    cout << "R: Report" << endl; // Need to be Modified
+    cout << "R: Report" << endl; // Done
     cout << "B: Budget Setting" << endl; // Done
     cout << "G: Goal Setting" << endl;   // Done
     cout << "Q: Quit" << endl;  //Done
