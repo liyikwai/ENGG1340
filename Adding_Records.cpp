@@ -202,6 +202,21 @@ void Report(date *&Date, int count){
     }
   }
 }
+
+void Calculate_Monthly(date * &Date, int count, double &Monthly_Balance, double &Monthly_Income, double &Monthly_Expense){
+  int Months = (Date[count - 1].Year - Date[0].Year) * 12 + (Date[count - 1].Month - Date[0].Year);
+  Monthly_Income = Monthly_Expense = 0;
+  for (int i = 0; i< count; i++){
+    if (Date[i].rec.Type == 2)
+      Monthly_Income += Date[i].rec.Amount;
+    else 
+      Monthly_Expense += Date[i].rec.Amount;
+  }
+  Monthly_Income /= Months;
+  Monthly_Expense /= Months;
+  Monthly_Balance = Monthly_Income - Monthly_Expense;
+}
+
 int main() {
   string Command;
   int count = 0, size = 100;
@@ -217,8 +232,8 @@ int main() {
     cout << "D: Delete Records" << endl; //Done
     cout << "S: Search Records" << endl; //Done
     cout << "R: Report" << endl; // Need to be Modified
-    cout << "B: Budget Setting" << endl; // Need Monthly_Income
-    cout << "G: Goal Setting" << endl;   // Need Monthly_Balance
+    cout << "B: Budget Setting" << endl; // Done
+    cout << "G: Goal Setting" << endl;   // Done
     cout << "Q: Quit" << endl;  //Done
     cin >> Command;
     if (Command == "Q") // Quit
@@ -292,41 +307,35 @@ int main() {
         Change(Date, size, DD1, MM1, YYYY1, 1, Number1, Info1);
       }
       continue;
-      }
-      Sort(Date, count);
-      // Calculate_Monthly();
-      // monthly income, monthly expense, monthly balance, monthly spending compared to budget
+    }
+    Sort(Date, count);
+    //Record_to_File 
+    ofstream fout;
+    fout.open("Financial_Record.txt");
+    if (fout.fail())
+      exit(1);
+    for (int i = 0; i < count; i++){
+      if (Date[i].rec.Type == 0)
+        break;
+      fout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
+      fout << Date[i].rec.Type << " " << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
+    }
+    fout.close();
+    
+    Calculate_Monthly(Date, count, Monthly_Balance, Monthly_Income, Monthly_Expense);
     
     if (Command == "P"){ // Present Information
-      ofstream fout;
-      fout.open("Financial_Record.txt");
-      if (fout.fail())
-        exit(1);
-      for (int i = 0; i < count; i++){
-        if (Date[i].rec.Type == 0)
-          break;
-        cout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
-        fout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
-        if (Date[i].rec.Type == 2){
-          cout << "Income" << " ";
-          fout << "Income" << " ";
-        }
-        if (Date[i].rec.Type == 1){
-          cout << "Expense" << " ";
-          fout << "Expense" << " ";
-        }
-        cout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
-        fout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
-      }
-      fout.close();
+      ifstream in("Financial_Record.txt");
+      while(in)
+        cout << (char)in.get();
       continue;
     }
     if (Command == "B"){ // Budget Setting
       while(true){
-        cout << "Set your budget: " << endl;
+        cout << "Set your monthly budget: " << endl;
         cin >> Budget;
         if (Budget <= Monthly_Income){
-          cout << "OK." << endl;
+          cout << "You can afford it." << endl;
           break;
         }
         else
@@ -392,6 +401,5 @@ int main() {
   delete[] Date;
   return 0;
 }
-// Also need to do file I/O
 // Split .cpp and create makefile
 // Need Mistake-proof
