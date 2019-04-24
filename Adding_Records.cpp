@@ -177,7 +177,8 @@ void Search(date *&Date, int count, int DD1, int MM1, int YYYY1, int DD2, int MM
 }
 
 void Report(date *&Date, int count){
-  int Annual_Income, Annual_Expense, Net_Annual_Income, Year = Date[0].Year;
+  double Annual_Income = 0, Annual_Expense = 0;
+  int Year = Date[0].Year;
   for (int i = 0; i < count; i++){
     if (Date[i].Year == Year){
       if (Date[i].rec.Type == 2){
@@ -188,9 +189,10 @@ void Report(date *&Date, int count){
       }
     }
     else{
-      cout << Year << ": Annual Income " << Annual_Income << endl;
-      cout << Year << " : Annual Expense " << Annual_Expense<<endl;
-      Year=Date[i].Year;
+      cout << Year << " : Annual Income " << Annual_Income << endl;
+      cout << Year << " : Annual Expense " << Annual_Expense <<endl;
+      cout << Year << " : Annual Balance " << Annual_Income - Annual_Expense <<endl;
+      Year = Date[i].Year;
       Annual_Income = 0;
       Annual_Expense = 0;
        if (Date[i].rec.Type == 2){
@@ -394,8 +396,8 @@ int main() {
       Report(Date, count);
     }
     else{
-        cout<<"Command not found"<<endl;
-        continue;
+      cout<<"Command not found"<<endl;
+      continue;
     }
   }
   delete[] Date;
