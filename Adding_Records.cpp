@@ -123,6 +123,7 @@ void Change(date *&Date, int size, int DD, int MM, int YYYY, int Change_Type, in
     cout << "Info: T: Transportation\tF: Food & Drinks\tL: Living & Others" << endl;
     cin >> New_Info;
   }
+  int Flag = 0;
   for (int i = 0; i < size; i++){
     if(Date[i].Day == DD && Date[i].Month == MM && Date[i].Year == YYYY)
       if (Date[i].rec.Type == Change_Type && Date[i].rec.Amount == Number && Date[i].rec.Info == Info){
@@ -133,8 +134,11 @@ void Change(date *&Date, int size, int DD, int MM, int YYYY, int Change_Type, in
         Date[i].rec.Amount = New_Amount;
         Date[i].rec.Info = New_Info;
         break;
+        Flag = 1;
       }
   }
+  if (Flag == 0)
+    cout << "No such records found" << endl;
 }
 
 void Sort(date *&Date, int count){
@@ -311,7 +315,7 @@ int main() {
       continue;
     }
     if (Command == "C"){
-      if(count==0){
+      if(count == 0){
         cout<<"No record to be changed"<<endl;
         continue;
       }
