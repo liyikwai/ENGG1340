@@ -168,36 +168,30 @@ void Search(date *&Date, int count, int DD, int MM, int YYYY){
 }
 
 void Report(date *&Date, int count){
-  ofstream fout;
-  fout.open("Report.txt");
-  if (fout.fail()){
-    exit(1);
-  }
-  int annual_income, annual_expense, net_annual_income, year=Date[0].Year;
-  for (int i=0; i<count; i++){
-    if (Date[i].Year == year){
+  int Annual_Income, Annual_Expense, Net_Annual_Income, Year = Date[0].Year;
+  for (int i = 0; i < count; i++){
+    if (Date[i].Year == Year){
       if (Date[i].rec.Type == 2){
-        annual_income += Date[i].rec.Amount;
+        Annual_Income += Date[i].rec.Amount;
       }
       if (Date[i].rec.Type == 1){
-        annual_expense += Date[i].rec.Amount;
+        Annual_Expense += Date[i].rec.Amount;
       }
     }
     else{
-      fout<<year<<" : Annual income "<<annual_income<<endl;
-      fout<<year<<" : Annual expense "<<annual_expense<<endl;
-      year=Date[i].Year;
-      annual_income=0;
-      annual_expense=0;
+      cout << Year << ": Annual income " << Annual_Income << endl;
+      cout << Year << " : Annual expense " << Annual_Expense<<endl;
+      Year=Date[i].Year;
+      Annual_Income = 0;
+      Annual_Expense = 0;
        if (Date[i].rec.Type == 2){
-        annual_income += Date[i].rec.Amount;
+        Annual_Income += Date[i].rec.Amount;
       }
       if (Date[i].rec.Type == 1){
-        annual_expense += Date[i].rec.Amount;
+        Annual_Expense += Date[i].rec.Amount;
       }
     }
   }
-  
 }
 int main() {
   string Command;
@@ -210,10 +204,10 @@ int main() {
     cout << "I: Adding income" << endl; // Done
     cout << "E: Adding Expense" << endl; // Done
     cout << "P: Present Information and Save it to a file" << endl; // Done
-    cout << "C: Change Records" << endl;
-    cout << "D: Delete Records" << endl;
+    cout << "C: Change Records" << endl; //Done
+    cout << "D: Delete Records" << endl; //Done
     cout << "S: Search Records" << endl; //Done, to be Modified
-    cout << "R: Report" << endl; 
+    cout << "R: Report" << endl; // Need to be Modified
     cout << "B: Budget Setting" << endl; // Need Monthly_Income
     cout << "G: Goal Setting" << endl;   // Need Monthly_Balance
     cout << "Q: Quit" << endl;  //Done
@@ -235,10 +229,10 @@ int main() {
       continue;
     }
     if (Command == "D"){ // Delete Records
-            if(count==0){
-                 cout<<"No record to be deleted"<<endl;
-                 continue;
-               }
+      if(count == 0){
+        cout << "No record to be deleted" << endl;
+        continue;
+      }
       int DD0, MM0, YYYY0;
       double Number0;
       string Del_Type, Info0;
@@ -263,10 +257,10 @@ int main() {
       continue;
     }
     if (Command == "C"){
-            if(count==0){
-                 cout<<"No record to be changed"<<endl;
-                 continue;
-            }
+      if(count==0){
+        cout<<"No record to be changed"<<endl;
+        continue;
+      }
       int DD1, MM1, YYYY1;
       double Number1;
       string Change_Type, Info1;
@@ -289,36 +283,35 @@ int main() {
         Change(Date, size, DD1, MM1, YYYY1, 1, Number1, Info1);
       }
       continue;
-    }
-    Sort(Date, count);
-    // Calculate_Monthly();
-    // monthly income, monthly expense, monthly balance, monthly spending compared to budget
-    
-    if (Command == "P"){ // Present Information
-            ofstream fout;
-               fout.open("Financial_Record.txt");
-               if (fout.fail()){
-                 exit(1);
-               }
-      for (int i = 0; i < count; i++){
-        if (Date[i].rec.Type == 0)
-          break;
-        cout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
-                fout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
-        if (Date[i].rec.Type == 2){
-          cout << "Income" << " ";
-                    fout << "Income" << " ";
-	}
-        if (Date[i].rec.Type == 1){
-          cout << "Expense" << " ";
-                    fout << "Expense" << " ";
-	}
-        cout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
-                fout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
       }
-            fout.close();
-      continue;
-    }
+      Sort(Date, count);
+      // Calculate_Monthly();
+      // monthly income, monthly expense, monthly balance, monthly spending compared to budget
+    
+      if (Command == "P"){ // Present Information
+        ofstream fout;
+        fout.open("Financial_Record.txt");
+        if (fout.fail())
+          exit(1);
+        for (int i = 0; i < count; i++){
+          if (Date[i].rec.Type == 0)
+            break;
+          cout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
+                  fout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
+          if (Date[i].rec.Type == 2){
+            cout << "Income" << " ";
+                      fout << "Income" << " ";
+        }
+          if (Date[i].rec.Type == 1){
+            cout << "Expense" << " ";
+                      fout << "Expense" << " ";
+          }
+          cout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
+                  fout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
+        }
+        fout.close();
+        continue;
+      }
     if (Command == "B"){ // Budget Setting
       while(true){
         cout << "Set your budget: " << endl;
@@ -358,18 +351,17 @@ int main() {
 	    Search(Date, count, DD2, MM2, YYYY2);
       continue;
     }
-    // R
-        if (Command == "R"){
-            if(count==0){
-                 cout<<"No record to be reported"<<endl;
-                 continue;
-            }
-            Report(Date, count);
-          }
-        else{
-            cout<<"Command not found"<<endl;
-            continue;
-          }
+    if (Command == "R"){
+      if(count == 0){
+        cout << "No record to be reported" << endl;
+        continue;
+      }
+      Report(Date, count);
+    }
+    else{
+        cout<<"Command not found"<<endl;
+        continue;
+    }
   }
   delete[] Date;
   return 0;
