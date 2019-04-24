@@ -357,8 +357,8 @@ int main() {
     // Functions below will not change records
     if (Command == "P"){ // Present Information
       ifstream in("Financial_Record.txt");
-      while(in)
-        cout << (char)in.get();
+      for(string str; getline(in, str);)
+        cout << str << endl;
       continue;
     }
     if (Command == "B"){ // Budget Setting
