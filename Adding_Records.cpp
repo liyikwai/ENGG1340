@@ -86,18 +86,54 @@ void Append_Expense(date *&Date, int count){
   Date[count].rec.Info = Info;
 }
 
-void Delete(date *&Date, int &size, int DD, int MM, int YYYY, int Number, string Info){
+void Delete(date *&Date, int &size, int DD, int MM, int YYYY, int Del_Type, int Number, string Info){
   date *Temp = new date [size-1];
   int k = 0;
   size--;
   for (int i = 0; i < size; i++){
-    if(Date[i].Day == DD && Date[i].Month == MM && Date[i].Year == YYYY && Date[i].rec.Amount == Number && Date[i].rec.Info == Info)
-      ++k;
+    if(Date[i].Day == DD && Date[i].Month == MM && Date[i].Year == YYYY)
+      if (Date[i].rec.Type == Del_Type && Date[i].rec.Amount == Number && Date[i].rec.Info == Info)
+        k++;
     Temp[i] = Date[k];
     k++;
   }
   delete[] Date;
   Date = Temp;
+}
+
+void Change(date *&Date, int size, int DD, int MM, int YYYY, int Change_Type, int Number, string Info){
+  int New_DD, New_MM, New_YYYY, New_Type, New_Amount;
+  string New_Info, New_Type_String;
+  cout << "DD MM YYYY: " << endl;
+  cin >> New_DD >> New_MM >> New_YYYY;
+  cout << "Change to Income or Expense (input I or E): " << endl;
+  cin >> New_Type_String;
+  if (New_Type_String == "I"){
+    New_Type = 2;
+    cout << "Income: " << endl;
+    cin >> New_Amount;
+    cout << "Info: E: Earned Income\tF: Portfolio Income\tP: Passive Income" << endl;
+    cin >> New_Info;
+  }
+  else if (New_Type_String == "E"){
+    New_Type = 1;
+    cout << "Expense: " << endl;
+    cin >> New_Amount;
+    cout << "Info: T: Transportation\tF: Food & Drinks\tL: Living & Others" << endl;
+    cin >> New_Info;
+  }
+  for (int i = 0; i < size; i++){
+    if(Date[i].Day == DD && Date[i].Month == MM && Date[i].Year == YYYY)
+      if (Date[i].rec.Type == Change_Type && Date[i].rec.Amount == Number && Date[i].rec.Info == Info){
+        Date[i].Day = New_DD;
+        Date[i].Month = New_MM;
+        Date[i].Year = New_YYYY;
+        Date[i].rec.Type = New_Type;
+        Date[i].rec.Amount = New_Amount;
+        Date[i].rec.Info = New_Info;
+        break;
+      }
+  }
 }
 
 void Sort(date *&Date, int count){
@@ -167,29 +203,52 @@ int main() {
     }
     if (Command == "D"){ // Delete Records
       int DD0, MM0, YYYY0;
-      double Number;
-      string Info0;
-      string Del;
-      cout << "Deleting Income or Expense? I: Income E: Expense "<<endl;
-      cin >> Del;
+      double Number0;
+      string Del_Type, Info0;
+      cout << "Deleting Income or Expense? I: Income E: Expense " << endl;
+      cin >> Del_Type;
       cout << "DD MM YYYY: " << endl;
       cin >> DD0 >> MM0 >> YYYY0;
-      if (Del == "I"){
+      if (Del_Type == "I"){
         cout << "Income: " << endl;
-        cin >> Number;
+        cin >> Number0;
         cout << "Info: E: Earned Income\tF: Portfolio Income\tP: Passive Income" << endl;
         cin >> Info0;
+        Delete(Date, size, DD0, MM0, YYYY0, 2, Number0, Info0);
       }
-      if (Del == "E"){
+      else if (Del_Type == "E"){
         cout << "Expense: " << endl;
-        cin >> Number;
+        cin >> Number0;
         cout << "Info: T: Transportation\tF: Food & Drinks\tL: Living & Others" << endl;
         cin >> Info0;
+        Delete(Date, size, DD0, MM0, YYYY0, 1, Number0, Info0);
       }
-      Delete(Date, size, DD0, MM0, YYYY0, Number, Info0);
       continue;
     }
-    //C
+    if (Command == "C"){
+      int DD1, MM1, YYYY1;
+      double Number1;
+      string Change_Type, Info1;
+      cout << "Change Income or Expense? I: Income E: Expense " << endl;
+      cin >> Change_Type;
+      cout << "DD MM YYYY: " << endl;
+      cin >> DD1 >> MM1 >> YYYY1;
+      if (Change_Type == "I"){
+        cout << "Income: " << endl;
+        cin >> Number1;
+        cout << "Info: E: Earned Income\tF: Portfolio Income\tP: Passive Income" << endl;
+        cin >> Info1;
+        Change(Date, size, DD1, MM1, YYYY1, 2, Number1, Info1);
+      }
+      else if (Change_Type == "E"){
+        cout << "Expense: " << endl;
+        cin >> Number1;
+        cout << "Info: T: Transportation\tF: Food & Drinks\tL: Living & Others" << endl;
+        cin >> Info1;
+        Change(Date, size, DD1, MM1, YYYY1, 1, Number1, Info1);
+      }
+      continue;
+    }
     Sort(Date, count);
     // Calculate_Monthly();
     // monthly income, monthly expense, monthly balance, monthly spending compared to budget
@@ -240,10 +299,10 @@ int main() {
       continue;
     }
     if (Command == "S"){ // Search Records
-      int DD1, MM1, YYYY1;
+      int DD2, MM2, YYYY2;
       cout << "Please enter the date for searching: DD MM YYYY: " << endl;
-      cin >> DD1 >> MM1 >> YYYY1;
-	    Search(Date, count, DD1, MM1, YYYY1);
+      cin >> DD2 >> MM2 >> YYYY2;
+	    Search(Date, count, DD2, MM2, YYYY2);
       continue;
     }
     // R
@@ -253,3 +312,4 @@ int main() {
 }
 // Also need to do file I/O
 // Split .cpp and create makefile
+// Need Mistake-proof
