@@ -178,23 +178,44 @@ void Search(date *&Date, int count, int DD1, int MM1, int YYYY1, int DD2, int MM
 
 void Report(date *&Date, int count){
   double Annual_Income = 0, Annual_Expense = 0;
+  double Income_E = 0, Income_F = 0, Income_P = 0;
+  double Expense_T = 0, Expense_F = 0, Expense_L = 0;
   int Year = Date[0].Year;
   for (int i = 0; i < count; i++){
     if (Date[i].Year == Year){
       if (Date[i].rec.Type == 2){
         Annual_Income += Date[i].rec.Amount;
+        if (Date[i].rec.Info == "E")
+          Income_E += Date[i].rec.Amount;
+        else if (Date[i].rec.Info == "F")
+          Income_F += Date[i].rec.Amount;
+        else
+          Income_P += Date[i].rec.Amount;
       }
       if (Date[i].rec.Type == 1){
         Annual_Expense += Date[i].rec.Amount;
+        if (Date[i].rec.Info == "T")
+          Expense_T += Date[i].rec.Amount;
+        else if (Date[i].rec.Info == "F")
+          Expense_F += Date[i].rec.Amount;
+        else
+          Expense_L += Date[i].rec.Amount;
       }
     }
     else{
       cout << Year << " : Annual Income " << Annual_Income << endl;
       cout << Year << " : Annual Expense " << Annual_Expense <<endl;
       cout << Year << " : Annual Balance " << Annual_Income - Annual_Expense <<endl;
+      cout << Year << " : Earned Income " << Income_E << Income_E / Annual_Income << endl;
+      cout << Year << " : Porfolio Income " << Income_F << Income_F / Annual_Income << endl;
+      cout << Year << " : Passive Income " << Income_P << Income_P / Annual_Income << endl;
+      cout << Year << " : Transportation Expense " << Expense_T << Expense_T / Annual_Expense << endl;
+      cout << Year << " : Food & Drinks " << Expense_F << Expense_F / Annual_Expense << endl;
+      cout << Year << " : Living & Others " << Expense_L << Expense_L / Annual_Expense << endl;
       Year = Date[i].Year;
-      Annual_Income = 0;
-      Annual_Expense = 0;
+      Annual_Income = Annual_Expense = 0;
+      Income_E = Income_F = Income_P = 0;
+      Expense_T = Expense_F = Expense_L = 0;
        if (Date[i].rec.Type == 2){
         Annual_Income += Date[i].rec.Amount;
       }
@@ -227,7 +248,7 @@ int main() {
   double Monthly_Balance = 0, Monthly_Income = 0, Monthly_Expense = 0;
   while(true) {
     cout << "Please enter the following commands:" << endl;
-    cout << "I: Adding income" << endl; // Done
+    cout << "I: Adding Income" << endl; // Done
     cout << "E: Adding Expense" << endl; // Done
     cout << "P: Present Information and Save it to a file" << endl; // Done
     cout << "C: Change Records" << endl; //Done
@@ -360,8 +381,10 @@ int main() {
         cin >> Monthly_Goal;
         if(Monthly_Goal > Monthly_Balance)
           cout << "That's beyond your financial capability!";
-        else
+        else{
           cout << "That will take you " << Goal / Monthly_Goal << " months to achieve!" << endl;
+          break;
+        }
       }
       continue;
     }
