@@ -348,7 +348,11 @@ int main() {
       if (Date[i].rec.Type == 0)
         break;
       fout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
-      fout << Date[i].rec.Type << " " << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
+      if (Date[i].rec.Type == 2)
+        cout << "Income ";
+      else
+        cout << "Expense ";
+      fout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
     }
     fout.close();
     
@@ -359,7 +363,7 @@ int main() {
       ifstream in("Financial_Record.txt");
       for(string str; getline(in, str);)
         cout << str << endl;
-      cout << "(2 for Income, 1 for Expense)" << endl;
+      cout << "";
       continue;
     }
     if (Command == "B"){ // Budget Setting
