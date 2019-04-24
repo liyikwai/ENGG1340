@@ -378,8 +378,10 @@ int main() {
           cout << "You can afford it." << endl;
           break;
         }
-        else
+        else{
           cout << "Beyond Your financial capability! Reset your budget!" << endl;
+          break;
+        }
       }
       continue;
     }
@@ -395,8 +397,10 @@ int main() {
           break;
         }
         cin >> Monthly_Goal;
-        if(Monthly_Goal > Monthly_Balance)
+        if(Monthly_Goal > Monthly_Balance){
           cout << "That's beyond your financial capability!";
+          break;
+        }
         else{
           cout << "That will take you " << Goal / Monthly_Goal << " months to achieve!" << endl;
           break;
