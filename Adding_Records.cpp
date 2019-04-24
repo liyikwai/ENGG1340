@@ -91,7 +91,7 @@ void Delete(date *&Date, int &size, int DD, int MM, int YYYY, int Del_Type, int 
   date *Temp = new date [size-1];
   int k = 0;
   size--;
-  for (int i = 0; i < size; i++){
+  for (int i = 0; i < size - 1; i++){
     if(Date[i].Day == DD && Date[i].Month == MM && Date[i].Year == YYYY)
       if (Date[i].rec.Type == Del_Type && Date[i].rec.Amount == Number && Date[i].rec.Info == Info)
         k++;
@@ -156,15 +156,24 @@ void Sort(date *&Date, int count){
       }
 }
 
-void Search(date *&Date, int count, int DD, int MM, int YYYY){
+void Search(date *&Date, int count, int DD1, int MM1, int YYYY1, int DD2, int MM2, int YYYY2, int Type, int Amount1, int Amount2, string Info){
+  int Flag = 0;
   for (int i = 0; i < count; i++)
-    if (Date[i].Day == DD && Date[i].Month == MM && Date[i].Year == YYYY){
-      if (Date[i].rec.Type == 2)
-        cout << "Income: " << " ";
-      if (Date[i].rec.Type == 1)
-        cout << "Expense: " << " ";
-      cout << Date[i].rec.Amount << " Info: " << Date[i].rec.Info << endl;
+    if (Date[i].Year <= YYYY2 && Date[i].Year >= YYYY1 && Date[i].Month <= MM2 && Date[i].Month >= MM1 && Date[i].Day <= DD2 && Date[i].Day >= DD1){
+      if (Date[i].rec.Type == Type)
+        if (Date[i].rec.Amount <= Amount2 && Date[i].rec.Amount >= Amount2)
+          if (Date[i].rec.Info == Info){
+            cout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
+            if (Date[i].rec.Type == 2)
+              cout << "Income" << " ";
+            else 
+              cout << "Expense" << " ";
+            cout << Date[i].rec.Info << endl;
+            Flag = 1;
+          }
     }
+    if (Flag == 0)
+      cout << "Not Found!" << endl;
 }
 
 void Report(date *&Date, int count){
@@ -179,8 +188,8 @@ void Report(date *&Date, int count){
       }
     }
     else{
-      cout << Year << ": Annual income " << Annual_Income << endl;
-      cout << Year << " : Annual expense " << Annual_Expense<<endl;
+      cout << Year << ": Annual Income " << Annual_Income << endl;
+      cout << Year << " : Annual Expense " << Annual_Expense<<endl;
       Year=Date[i].Year;
       Annual_Income = 0;
       Annual_Expense = 0;
@@ -206,7 +215,7 @@ int main() {
     cout << "P: Present Information and Save it to a file" << endl; // Done
     cout << "C: Change Records" << endl; //Done
     cout << "D: Delete Records" << endl; //Done
-    cout << "S: Search Records" << endl; //Done, to be Modified
+    cout << "S: Search Records" << endl; //Done
     cout << "R: Report" << endl; // Need to be Modified
     cout << "B: Budget Setting" << endl; // Need Monthly_Income
     cout << "G: Goal Setting" << endl;   // Need Monthly_Balance
@@ -288,30 +297,30 @@ int main() {
       // Calculate_Monthly();
       // monthly income, monthly expense, monthly balance, monthly spending compared to budget
     
-      if (Command == "P"){ // Present Information
-        ofstream fout;
-        fout.open("Financial_Record.txt");
-        if (fout.fail())
-          exit(1);
-        for (int i = 0; i < count; i++){
-          if (Date[i].rec.Type == 0)
-            break;
-          cout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
-                  fout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
-          if (Date[i].rec.Type == 2){
-            cout << "Income" << " ";
-                      fout << "Income" << " ";
+    if (Command == "P"){ // Present Information
+      ofstream fout;
+      fout.open("Financial_Record.txt");
+      if (fout.fail())
+        exit(1);
+      for (int i = 0; i < count; i++){
+        if (Date[i].rec.Type == 0)
+          break;
+        cout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
+        fout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
+        if (Date[i].rec.Type == 2){
+          cout << "Income" << " ";
+          fout << "Income" << " ";
         }
-          if (Date[i].rec.Type == 1){
-            cout << "Expense" << " ";
-                      fout << "Expense" << " ";
-          }
-          cout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
-                  fout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
+        if (Date[i].rec.Type == 1){
+          cout << "Expense" << " ";
+          fout << "Expense" << " ";
         }
-        fout.close();
-        continue;
+        cout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
+        fout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
       }
+      fout.close();
+      continue;
+    }
     if (Command == "B"){ // Budget Setting
       while(true){
         cout << "Set your budget: " << endl;
@@ -345,10 +354,27 @@ int main() {
       continue;
     }
     if (Command == "S"){ // Search Records
-      int DD2, MM2, YYYY2;
-      cout << "Please enter the date for searching: DD MM YYYY: " << endl;
-      cin >> DD2 >> MM2 >> YYYY2;
-	    Search(Date, count, DD2, MM2, YYYY2);
+      int DD2_1, DD2_2, MM2_1, MM2_2, YYYY2_1, YYYY2_2, Amount1, Amount2, Search_Type;
+      string Search_Type_String, Info;
+      cout << "Please enter the dates: DD1 MM1 YYYY1 DD2 MM2 YYYY2: \n(Results between these dates)" << endl;
+      cin >> DD2_1 >> MM2_1 >> YYYY2_1 >> DD2_2;
+      cout << "Please enter the Type (I for Income, E for Expense): " << endl;
+      cin >> Search_Type_String;
+      if (Search_Type_String == "I")
+        Search_Type = 2;
+      else if (Search_Type_String == "E")
+        Search_Type = 1;
+      cout << "Please enter Amount range (Amount1 Amount2): " << endl;
+      cin >> Amount1 >> Amount2;
+      if (Search_Type == 2){
+        cout << "Please enter the Info (E: Earned Income\tF: Portfolio Income\tP: Passive Income): " << endl;
+        cin >> Info;
+      }
+      else if (Search_Type == 1){
+        cout << "Please enter the Info (T: Transportation\tF: Food & Drinks\tL: Living & Others): " << endl;
+        cin >> Info;
+      }
+	    Search(Date, count, DD2_1, MM2_1, YYYY2_1, DD2_2, MM2_2, YYYY2_2, Search_Type, Amount1, Amount2, Info);
       continue;
     }
     if (Command == "R"){
