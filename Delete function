@@ -13,7 +13,7 @@ void Delete(date *&Date, int &size, int DD, int MM, int YYYY, int number, string
     Date = temp;
 }
 
-        if (Command == "D"){
+         if (Command == "D"){
             int DD, MM, YYYY;
             double number;
             string Info;
@@ -28,4 +28,12 @@ void Delete(date *&Date, int &size, int DD, int MM, int YYYY, int number, string
               cout << "Info: E: Earned Income\tF: Portfolio Income\tP: Passive Income" << endl;
               cin >> Info;
             }
-
+            if (del=="E"){
+              cout << "Expense: " << endl;
+              cin >> number;
+              cout << "Info: T: Transportation\tF: Food & Drinks\tL: Living & Others" << endl;
+              cin >> Info;
+            }
+            Delete(Date, size, DD, MM, YYYY, number, Info);          
+        }
+    Sort(Date, count);
