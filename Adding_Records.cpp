@@ -201,7 +201,11 @@ int main() {
       count++;
       continue;
     }
-    if (Command == "D"){ // Delete Records
+    if (Command == "D"){ // Delete Record
+      if(count==0){
+        cout<<"No record to be deleted"<<endl;
+        continue;
+      }
       int DD0, MM0, YYYY0;
       double Number0;
       string Del_Type, Info0;
@@ -226,6 +230,10 @@ int main() {
       continue;
     }
     if (Command == "C"){
+      if(count==0){
+        cout<<"No record to be changed"<<endl;
+        continue;
+      }
       int DD1, MM1, YYYY1;
       double Number1;
       string Change_Type, Info1;
