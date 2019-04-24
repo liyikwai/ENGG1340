@@ -398,7 +398,7 @@ int main() {
       while(true){
         cin >> Monthly_Goal;
         if(Monthly_Goal > Monthly_Balance){
-          cout << "That's beyond your financial capability!";
+          cout << "That's beyond your financial capability!"<<endl;
           break;
         }
         else{
