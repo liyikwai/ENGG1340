@@ -231,7 +231,7 @@ void Report(date *&Date, int count){
 }
 
 void Calculate_Monthly(date * &Date, int count, double &Monthly_Balance, double &Monthly_Income, double &Monthly_Expense){
-  double Months = (Date[count - 1].Year - Date[0].Year) * 12 + (Date[count - 1].Month - Date[0].Year) + 1;
+  double Months = (Date[count - 1].Year - Date[0].Year) * 12 + (Date[count - 1].Month - Date[0].Month) + 1;
   Monthly_Income = Monthly_Expense = 0;
   for (int i = 0; i < count; i++){
     if (Date[i].rec.Type == 2)
@@ -374,7 +374,6 @@ int main() {
       while(true){
         cout << "Set your monthly budget: " << endl;
         cin >> Budget;
-        cout << Monthly_Income << endl;
         if (Budget <= Monthly_Income){
           cout << "You can afford it." << endl;
           break;
