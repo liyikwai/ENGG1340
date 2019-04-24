@@ -1,0 +1,39 @@
+void Delete(date *&Date, int &size, int DD, int MM, int YYYY, int number, string info){
+  date *temp = new date [size-1];
+    int k=0;
+  size--;
+  for (int i=0; i<size; i++){
+    if(Date[i].Day==DD && Date[i].Month==MM && Date[i].Year==YYYY && Date[i].rec.Amount==number && Date[i].rec.Info==info){
+             ++k;
+   }
+       temp[i] = Date[k];
+       k++;
+  }
+    delete[] Date;
+    Date = temp;
+}
+
+        if (Command == "D"){
+            int DD, MM, YYYY;
+            double number;
+            string Info;
+            string del;
+            cout<<"Deleting Income or Expense? I: Income E: Expense "<<endl;
+            cin>>del;
+            cout << "DD MM YYYY: " << endl;
+            cin >> DD >> MM >> YYYY;
+            if (del=="I"){
+              cout << "Income: " << endl;
+              cin >> number;
+              cout << "Info: E: Earned Income\tF: Portfolio Income\tP: Passive Income" << endl;
+              cin >> Info;
+            }
+            if (del=="E"){
+              cout << "Expense: " << endl;
+              cin >> number;
+              cout << "Info: T: Transportation\tF: Food & Drinks\tL: Living & Others" << endl;
+              cin >> Info;
+            }
+            Delete(Date, size, DD, MM, YYYY, number, Info);          
+        }
+    Sort(Date, count);
