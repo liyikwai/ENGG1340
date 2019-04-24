@@ -275,6 +275,13 @@ int main() {
       count++;
       continue;
     }
+
+    if (Command != "I" && Command != "E")
+      if (count == 0){
+        cout << "Warning: No Records!" << endl;
+        continue;
+      }
+
     if (Command == "D"){ // Delete Records
       if(count == 0){
         cout << "No record to be deleted" << endl;
