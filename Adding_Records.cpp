@@ -386,16 +386,16 @@ int main() {
       continue;
     }
     if (Command == "G"){ // Goal Setting
+      if (Monthly_Balance < 0) {
+        cout << "You are bleeding money, change your spending habit first!" << endl;
+        continue;
+      }
       double Goal, Monthly_Goal;
       cout << "What's your goal?" << endl;
       cin >> Goal;
       cout << "That will take you at least " << Goal / Monthly_Balance << " months." << endl;
       cout << "How much per month do you want to save for it?" << endl;
       while(true){
-        if (Monthly_Balance < 0) {
-          cout << "You are bleeding money, change your spending habit first!" << endl;
-          break;
-        }
         cin >> Monthly_Goal;
         if(Monthly_Goal > Monthly_Balance){
           cout << "That's beyond your financial capability!";
