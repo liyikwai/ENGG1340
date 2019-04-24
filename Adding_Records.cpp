@@ -375,6 +375,7 @@ int main() {
         cout << "Set your monthly budget: " << endl;
         cin >> Budget;
         if (Budget <= Monthly_Income){
+          cout << Monthly_Income << endl;
           cout << "You can afford it." << endl;
           break;
         }
