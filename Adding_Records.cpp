@@ -102,17 +102,14 @@ void Sort(date *&Date, int count){
       }
 }
 void Search(date *&Date, int count, int DD, int MM, int YYYY){
-  for (int i=0; i<count; i++){
-      if(Date[i].Day==DD && Date[i].Month==MM && Date[i].Year==YYYY){
-        if (Date[i].rec.Type == 2){
-          cout << "Income" << " ";
-        }
-        if (Date[i].rec.Type == 1){
-          cout << "Expense" << " ";
-        }
-        cout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
+  for (int i = 0; i < count; i++)
+    if (Date[i].Day == DD && Date[i].Month == MM && Date[i].Year == YYYY){
+      if (Date[i].rec.Type == 2)
+        cout << "Income: " << " ";
+      if (Date[i].rec.Type == 1)
+        cout << "Expense: " << " ";
+      cout << Date[i].rec.Amount << " Info: " << Date[i].rec.Info << endl;
     }
-  }
 }
 int main() {
   string Command;
@@ -152,6 +149,7 @@ int main() {
     //C, D
     Sort(Date, count);
     // monthly income, monthly expense, monthly balance, monthly spending compared to budget
+    
     if (Command == "P"){
       for (int i = 0; i < count; i++){
         if (Date[i].rec.Type == 0)
@@ -165,13 +163,6 @@ int main() {
       }
       continue;
     }
-    if (Command == "S"){
-      int DD, MM, YYYY;
-      cout << "Please enter the date for searching: DD MM YYYY: " << endl;
-      cin >> DD >> MM >> YYYY;
-	    Search(Date, count, DD, MM, YYYY);
-    }
-
     if (Command == "B"){
       while(true){
         cout << "Set your budget: " << endl;
@@ -183,6 +174,7 @@ int main() {
         else
           cout << "Beyond Your financial capability! Reset your budget!" << endl;
       }
+      continue;
     }
     if (Command == "G"){
       double Goal, Monthly_Goal;
@@ -201,9 +193,16 @@ int main() {
         else
           cout << "That will take you " << Goal / Monthly_Goal << "to achieve!" << endl;
       }
+      continue;
     }
-    // S, R
-    
+    if (Command == "S"){
+      int DD1, MM1, YYYY1;
+      cout << "Please enter the date for searching: DD MM YYYY: " << endl;
+      cin >> DD1 >> MM1 >> YYYY1;
+	    Search(Date, count, DD1, MM1, YYYY1);
+      continue;
+    }
+    // R
   }
   delete[] Date;
   return 0;
