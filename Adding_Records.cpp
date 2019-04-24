@@ -359,7 +359,7 @@ int main() {
       ifstream in("Financial_Record.txt");
       for(string str; getline(in, str);)
         cout << str << endl;
-      cout << "(2 for Income, 1 for Expense." << endl;
+      cout << "(2 for Income, 1 for Expense)" << endl;
       continue;
     }
     if (Command == "B"){ // Budget Setting
