@@ -349,9 +349,9 @@ int main() {
         break;
       fout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
       if (Date[i].rec.Type == 2)
-        cout << "Income ";
+        fout << "Income ";
       else
-        cout << "Expense ";
+        fout << "Expense ";
       fout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
     }
     fout.close();
