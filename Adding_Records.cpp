@@ -47,6 +47,7 @@ void Increase_Size(date *&Date, int &size) {
   Date = temp;
   size += 10;
 }
+
 void Append_Income(date *&Date, int count) {
   int DD, MM, YYYY;
   double Income;
@@ -65,6 +66,7 @@ void Append_Income(date *&Date, int count) {
   Date[count].rec.Type = 2;
   Date[count].rec.Info = Info;
 }
+
 void Append_Expense(date *&Date, int count){
   int DD, MM, YYYY;
   double Expense;
@@ -83,6 +85,21 @@ void Append_Expense(date *&Date, int count){
   Date[count].rec.Type = 1;
   Date[count].rec.Info = Info;
 }
+
+void Delete(date *&Date, int &size, int DD, int MM, int YYYY, int Number, string Info){
+  date *Temp = new date [size-1];
+  int k = 0;
+  size--;
+  for (int i = 0; i < size; i++){
+    if(Date[i].Day == DD && Date[i].Month == MM && Date[i].Year == YYYY && Date[i].rec.Amount == Number && Date[i].rec.Info == Info)
+      ++k;
+    Temp[i] = Date[k];
+    k++;
+  }
+  delete[] Date;
+  Date = Temp;
+}
+
 void Sort(date *&Date, int count){
   int Actual_Count = count;
   for (int i = 0; i < count; i++){
@@ -101,6 +118,7 @@ void Sort(date *&Date, int count){
         delete Temp;
       }
 }
+
 void Search(date *&Date, int count, int DD, int MM, int YYYY){
   for (int i = 0; i < count; i++)
     if (Date[i].Day == DD && Date[i].Month == MM && Date[i].Year == YYYY){
@@ -111,6 +129,7 @@ void Search(date *&Date, int count, int DD, int MM, int YYYY){
       cout << Date[i].rec.Amount << " Info: " << Date[i].rec.Info << endl;
     }
 }
+
 int main() {
   string Command;
   int count = 0, size = 100;
@@ -124,33 +143,58 @@ int main() {
     cout << "P: Present Information" << endl; // Done
     cout << "C: Change Records" << endl;
     cout << "D: Delete Records" << endl;
-    cout << "S: Search Records" << endl;
+    cout << "S: Search Records" << endl; //Done, to be Modified
     cout << "R: Report" << endl; 
     cout << "B: Budget Setting" << endl; // Need Monthly_Income
     cout << "G: Goal Setting" << endl;   // Need Monthly_Balance
     cout << "Q: Quit" << endl;  //Done
     cin >> Command;
-    if (Command == "Q")
+    if (Command == "Q") // Quit
       break;
-    if (Command == "I") {
+    if (Command == "I") { // Adding income
       if (count == size)
         Increase_Size(Date, size);
       Append_Income(Date, count);
       count++;
       continue;
     }
-    else if (Command == "E"){
+    else if (Command == "E"){ // Adding Expense
       if (count == size)
         Increase_Size(Date, size);
       Append_Expense(Date, count);
       count++;
       continue;
     }
-    //C, D
+    if (Command == "D"){ // Delete Records
+      int DD0, MM0, YYYY0;
+      double Number;
+      string Info0;
+      string Del;
+      cout << "Deleting Income or Expense? I: Income E: Expense "<<endl;
+      cin >> Del;
+      cout << "DD MM YYYY: " << endl;
+      cin >> DD0 >> MM0 >> YYYY0;
+      if (Del == "I"){
+        cout << "Income: " << endl;
+        cin >> Number;
+        cout << "Info: E: Earned Income\tF: Portfolio Income\tP: Passive Income" << endl;
+        cin >> Info0;
+      }
+      if (Del == "E"){
+        cout << "Expense: " << endl;
+        cin >> Number;
+        cout << "Info: T: Transportation\tF: Food & Drinks\tL: Living & Others" << endl;
+        cin >> Info0;
+      }
+      Delete(Date, size, DD0, MM0, YYYY0, Number, Info0);
+      continue;
+    }
+    //C
     Sort(Date, count);
+    // Calculate_Monthly();
     // monthly income, monthly expense, monthly balance, monthly spending compared to budget
     
-    if (Command == "P"){
+    if (Command == "P"){ // Present Information
       for (int i = 0; i < count; i++){
         if (Date[i].rec.Type == 0)
           break;
@@ -163,7 +207,7 @@ int main() {
       }
       continue;
     }
-    if (Command == "B"){
+    if (Command == "B"){ // Budget Setting
       while(true){
         cout << "Set your budget: " << endl;
         cin >> Budget;
@@ -176,11 +220,11 @@ int main() {
       }
       continue;
     }
-    if (Command == "G"){
+    if (Command == "G"){ // Goal Setting
       double Goal, Monthly_Goal;
       cout << "What's your goal?" << endl;
       cin >> Goal;
-      cout << "That will take you at least " << Goal / Monthly_Balance << endl;
+      cout << "That will take you at least " << Goal / Monthly_Balance << "months." << endl;
       cout << "How much per month do you want to save for it?" << endl;
       while(true){
         if (Monthly_Balance < 0) {
@@ -191,11 +235,11 @@ int main() {
         if(Monthly_Goal > Monthly_Balance)
           cout << "That's beyond your financial capability!";
         else
-          cout << "That will take you " << Goal / Monthly_Goal << "to achieve!" << endl;
+          cout << "That will take you " << Goal / Monthly_Goal << " months to achieve!" << endl;
       }
       continue;
     }
-    if (Command == "S"){
+    if (Command == "S"){ // Search Records
       int DD1, MM1, YYYY1;
       cout << "Please enter the date for searching: DD MM YYYY: " << endl;
       cin >> DD1 >> MM1 >> YYYY1;
