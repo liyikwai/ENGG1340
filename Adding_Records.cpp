@@ -326,6 +326,7 @@ int main() {
     
     Calculate_Monthly(Date, count, Monthly_Balance, Monthly_Income, Monthly_Expense);
     
+    // Functions below will not change records
     if (Command == "P"){ // Present Information
       ifstream in("Financial_Record.txt");
       while(in)
