@@ -206,7 +206,7 @@ void Report(date *&Date, int count){
 }
 
 void Calculate_Monthly(date * &Date, int count, double &Monthly_Balance, double &Monthly_Income, double &Monthly_Expense){
-  int Months = (Date[count - 1].Year - Date[0].Year) * 12 + (Date[count - 1].Month - Date[0].Year);
+  int Months = (Date[count - 1].Year - Date[0].Year) * 12 + (Date[count - 1].Month - Date[0].Year) + 1;
   Monthly_Income = Monthly_Expense = 0;
   for (int i = 0; i < count; i++){
     if (Date[i].rec.Type == 2)
