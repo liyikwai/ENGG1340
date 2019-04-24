@@ -206,7 +206,7 @@ void Report(date *&Date, int count){
           Expense_L += Date[i].rec.Amount;
       }
     }
-    else if (Date[i].Year != Year || i == count - 1) {
+    if (Date[i].Year != Year || i == count - 1) {
       cout << Year << " : Annual Income " << Annual_Income << endl;
       cout << Year << " : Annual Expense " << Annual_Expense <<endl;
       cout << Year << " : Annual Balance " << Annual_Income - Annual_Expense <<endl;
