@@ -174,16 +174,18 @@ void Sort(date *&Date, int count){
 
 void Search(date *&Date, int count, int DD1, int MM1, int YYYY1, int DD2, int MM2, int YYYY2, int Type, double Amount1, double Amount2, string Info){
   int Flag = 0; //flag if there is a match
+  cout << endl << "          Searching Result          " << endl;
   for (int i = 0; i < count; i++)
     if (Date[i].Year <= YYYY2 && Date[i].Year >= YYYY1 && Date[i].Month <= MM2 && Date[i].Month >= MM1 && Date[i].Day <= DD2 && Date[i].Day >= DD1){ //if in the range
       if (Date[i].rec.Type == Type)
         if (Date[i].rec.Amount <= Amount2 && Date[i].rec.Amount >= Amount1)
           if (Date[i].rec.Info == Info){
-            cout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
+	    cout <<  "Day " << setw(6) << "Month "  << "Year " <<  " I/E    " << " Type " << "Amount" << endl;
+            cout << Date[i].Day << "  " << Date[i].Month << "    " << Date[i].Year << "  ";
             if (Date[i].rec.Type == 2)
-              cout << "Income" << " ";
+              cout << "Income" << "  ";
             else 
-              cout << "Expense" << " ";
+              cout << "Expense" << "  ";
             cout << Date[i].rec.Info << endl;
             Flag = 1;
           }
@@ -222,8 +224,8 @@ void Report(date *&Date, int count){ // produce an annual report
       }
     }
     if (Date[i].Year != Year || i == count - 1) { // if year changes or reaches the last one
-            cout<<endl;
-            cout<<left; 
+      cout<<endl;
+      cout<<left; 
       cout << Year << setw(28) << " : Average Monthly Income " << setw(5) << Annual_Income << "  \\ " << endl;
       cout << Year << setw(28) << " : Average Monthly Expense " << setw(5) << Annual_Expense << "  \\ " << endl;
       cout << Year << setw(28) << " : Net Income " << setw(5) << Annual_Income - Annual_Expense << "  \\ " << endl;
@@ -389,6 +391,7 @@ int main() {
       for(string str; getline(in, str);) // line by line
         cout << str << endl;
       cout << ""; // prevent weird characters at EOF
+      cout << " Financial_Report.txt has been created successfully " << endl;
       continue;
     }
     if (Command == "B"){ // Budget Setting, representing your planned monthly expense
@@ -433,22 +436,22 @@ int main() {
       int DD2_1, DD2_2, MM2_1, MM2_2, YYYY2_1, YYYY2_2, Search_Type; // ranges
       double Amount1, Amount2;
       string Search_Type_String, Info;
-      cout << "Please enter the range of searching dates: DD1 MM1 YYYY1 DD2 MM2 YYYY2: \n(Results between these dates)" << endl;
+      cout << "Please enter the range of searching dates (Results between these dates): " << endl << "(DD1 MM1 YYYY1 DD2 MM2 YYYY2): " << endl;
       cin >> DD2_1 >> MM2_1 >> YYYY2_1 >> DD2_2 >> MM2_2 >> YYYY2_2;
-      cout << "Please enter the Type (I for Income, E for Expense): " << endl;
+      cout << "Please enter the Type " << endl << "(I for Income, E for Expense): " << endl;
       cin >> Search_Type_String;
       if (Search_Type_String == "I")
         Search_Type = 2;
       else if (Search_Type_String == "E")
         Search_Type = 1;
-      cout << "Please enter range of searching amount (Amount1 Amount2): " << endl;
+      cout << "Please enter range of searching amount "<< endl << "(Amount1 Amount2): " << endl;
       cin >> Amount1 >> Amount2;
       if (Search_Type == 2){
-        cout << "Please enter the searching info (E: Earned Income\tF: Portfolio Income\tP: Passive Income): " << endl;
+        cout << "Please enter the searching info " << endl << "(E: Earned Income\tF: Portfolio Income\tP: Passive Income): " << endl;
         cin >> Info;
       }
       else if (Search_Type == 1){
-        cout << "Please enter the searching info (T: Transportation\tF: Food & Drinks\tL: Living & Others): " << endl;
+        cout << "Please enter the searching info " << endl << "(T: Transportation\tF: Food & Drinks\tL: Living & Others): " << endl;
         cin >> Info;
       }
 	    Search(Date, count, DD2_1, MM2_1, YYYY2_1, DD2_2, MM2_2, YYYY2_2, Search_Type, Amount1, Amount2, Info);
