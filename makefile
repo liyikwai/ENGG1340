@@ -1,28 +1,29 @@
-Target = account
-Object = add.o offer.o edit.o search.o report.o budget.o goal.o
+Target = Account
+Object = Main.c Add.o Offer.o Edit.o Search.o Report.o Budget.o Goal.o
 
 $(Target): $(Object)
   g++ $(Object) -o $(Target)
 
-add.o: Adding_Record.cpp
+Add_Record.o: Adding_Record.cpp
   g++ -c Adding_Record.cpp
 
-offer.o: Offering_Basic_Information.cpp
+Offer_Basic_Information.o: Offering_Basic_Information.cpp
   g++ -c Offering_Basic_Information.cpp
 
-edit.o: Editing_And_Deleting.cpp
+Edit_And_Deleting.o: Editing_And_Deleting.cpp
   g++ -c Editing_And_Deleting.cpp
 
-search.o: Searching_The_Records.cpp
+Search_The_Records.o: Searching_The_Records.cpp
   g++ -c Searching_The_Records.cpp
 
-report.o: Offering_Financial_Report.cpp
+Offering_Financial_Report.o: Offering_Financial_Report.cpp
   g++ -c Offering_Financial_Report.cpp
 
-budget.o: Setting_Budget.cpp
+Setting_Budget.o: Setting_Budget.cpp
   g++ -c Setting_Budget.cpp
 
-goal.o: Setting_And_Estimation.cpp
-  g++ -c Setting_And_Estimation.cpp
+Setting_And_Estimate_the_Goal.o: Setting_And_Estimate_the_Goal.cpp
+  g++ -c Setting_And_Estimate_the_Goal.cpp
 
-
+clean:
+  rm *.o main
