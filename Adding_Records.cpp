@@ -248,7 +248,6 @@ void Report(date *&Date, int count){ // produce an annual report
   }
 }
 
-
 void Calculate_Monthly(date * &Date, int count, double &Monthly_Balance, double &Monthly_Income, double &Monthly_Expense){
   double Months = (Date[count - 1].Year - Date[0].Year) * 12 + (Date[count - 1].Month - Date[0].Month) + 1; // how many months there are
   Monthly_Income = Monthly_Expense = 0;
@@ -261,6 +260,14 @@ void Calculate_Monthly(date * &Date, int count, double &Monthly_Balance, double 
   Monthly_Income /= Months;
   Monthly_Expense /= Months;
   Monthly_Balance = Monthly_Income - Monthly_Expense;
+}
+
+void Reading_record(){
+  ifstream in("Financial_Record.txt");
+  for(string str; getline(in, str);) // line by line
+    cout << str << endl;
+  cout << ""; // prevent weird characters at EOF
+  cout << "(Financial_Record.txt has been created successfully) " << endl;
 }
 
 int main() {
@@ -396,11 +403,7 @@ int main() {
     Calculate_Monthly(Date, count, Monthly_Balance, Monthly_Income, Monthly_Expense);
     // Functions below will not change records
     if (Command == "P"){ // Present Information
-      ifstream in("Financial_Record.txt");
-      for(string str; getline(in, str);) // line by line
-        cout << str << endl;
-      cout << ""; // prevent weird characters at EOF
-      cout << "(Financial_Record.txt has been created successfully) " << endl;
+      Reading_record();
       continue;
     }
     if (Command == "B"){ // Budget Setting, representing your planned monthly expense
