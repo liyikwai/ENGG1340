@@ -185,6 +185,8 @@ void Report(date *&Date, int count){ // produce an annual report
   double Income_E = 0, Income_F = 0, Income_P = 0;
   double Expense_T = 0, Expense_F = 0, Expense_L = 0;
   int Year = Date[0].Year;
+    cout<<left;
+  cout << "Year : " << "Statistical Data" << "         Amount " << "Percentage " << endl; 
   for (int i = 0; i < count; i++){
     if (Date[i].Year == Year){
       if (Date[i].rec.Type == 2){
@@ -207,15 +209,17 @@ void Report(date *&Date, int count){ // produce an annual report
       }
     }
     if (Date[i].Year != Year || i == count - 1) { // if year changes or reaches the last one
-      cout << Year << " : Annual Income " << Annual_Income << endl;
-      cout << Year << " : Annual Expense " << Annual_Expense <<endl;
-      cout << Year << " : Annual Balance " << Annual_Income - Annual_Expense <<endl;
-      cout << Year << " : Earned Income " << Income_E << " " << Income_E * 100 / Annual_Income << "%" << endl;
-      cout << Year << " : Porfolio Income " << Income_F << " " << Income_F * 100 / Annual_Income << "%" << endl;
-      cout << Year << " : Passive Income " << Income_P << " " << Income_P * 100 / Annual_Income << "%" << endl;
-      cout << Year << " : Transportation Expense " << Expense_T << " " << Expense_T * 100 / Annual_Expense << "%" << endl;
-      cout << Year << " : Food & Drinks " << Expense_F << " " << Expense_F * 100 / Annual_Expense << "%" << endl;
-      cout << Year << " : Living & Others " << Expense_L << " " << Expense_L * 100 / Annual_Expense << "%" << endl;
+            cout<<endl;
+            cout<<left; 
+      cout << Year << setw(28) << " : Average Monthly Income " << setw(5) << Annual_Income << "  \\ " << endl;
+      cout << Year << setw(28) << " : Average Monthly Expense " << setw(5) << Annual_Expense << "  \\ " << endl;
+      cout << Year << setw(28) << " : Net Income " << setw(5) << Annual_Income - Annual_Expense << "  \\ " << endl;
+      cout << Year << setw(28) << " : Earned Income " << setw(5) << Income_E << "  " << Income_E * 100 / Annual_Income << "%" << endl;
+      cout << Year << setw(28) << " : Porfolio Income " << setw(5) << Income_F << "  " << Income_F * 100 / Annual_Income << "%" << endl;
+      cout << Year << setw(28) << " : Passive Income " << setw(5) << Income_P << "  " << Income_P * 100 / Annual_Income << "%" << endl;
+      cout << Year << setw(28) << " : Transportation Expense " << setw(5) << Expense_T << "  " << Expense_T * 100 / Annual_Expense << "%" << endl;
+      cout << Year << setw(28) << " : Food & Drinks " << setw(5) << Expense_F << "  " << Expense_F * 100 / Annual_Expense << "%" << endl;
+      cout << Year << setw(28) << " : Living & Others " << setw(5) << Expense_L << "  " << Expense_L * 100 / Annual_Expense << "%" << endl;
       Year = Date[i].Year; // year changes
       Annual_Income = Annual_Expense = 0;
       Income_E = Income_F = Income_P = 0;
@@ -229,6 +233,7 @@ void Report(date *&Date, int count){ // produce an annual report
     }
   }
 }
+
 
 void Calculate_Monthly(date * &Date, int count, double &Monthly_Balance, double &Monthly_Income, double &Monthly_Expense){
   double Months = (Date[count - 1].Year - Date[0].Year) * 12 + (Date[count - 1].Month - Date[0].Month) + 1; // how many months there are
@@ -250,7 +255,13 @@ int main() {
   date *Date = new date[100]; //initialization
   double Budget = -1;
   double Monthly_Balance = 0, Monthly_Income = 0, Monthly_Expense = 0;
-  while(true) {
+  while(true) {      
+    cout<<endl;
+    cout<<"----------------------------"<<endl;
+    cout<<"|ENGG1340 Accounting System|"<<endl;
+    cout<<"|          Group73         |"<<endl;
+    cout<<"----------------------------"<<endl;
+    cout<<endl;
     cout << "Please enter the following commands:" << endl;
     cout << "I: Adding Income" << endl; // Done
     cout << "E: Adding Expense" << endl; // Done
@@ -336,20 +347,25 @@ int main() {
     }
     Sort(Date, count); //Sort after all functions that could change records
     //Record_to_File 
+    cout<<endl;
     ofstream fout;
     fout.open("Financial_Record.txt");
     if (fout.fail())
       exit(1);
+        fout <<  "Day " << setw(6) << "Month "  << "Year " <<  " I/E    " << " Type " << "Amount" << endl; 
+          fout<<left;
     for (int i = 0; i < count; i++){
       if (Date[i].rec.Type == 0)
         break;
-      fout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
+      fout << setw(4)  << Date[i].Day << setw(6) << Date[i].Month << setw(5) << Date[i].Year << " ";
       if (Date[i].rec.Type == 2)
-        fout << "Income ";
+        fout << "Income  ";
       else
         fout << "Expense ";
-      fout << Date[i].rec.Amount << " " << Date[i].rec.Info << endl;
+      fout << setw(5)  << Date[i].rec.Info << setw(5) << Date[i].rec.Amount << endl;
     }
+    fout << "(Income  E: Earned Income;  F: Portfolio Income; P: Passive Income " << endl;
+      fout << " Expense T: Transportation; F: Food & Drinks     L: Living & Others)" << endl;
     fout.close();
     // Calculate all monthlies after all functions that could change records
     Calculate_Monthly(Date, count, Monthly_Balance, Monthly_Income, Monthly_Expense);
