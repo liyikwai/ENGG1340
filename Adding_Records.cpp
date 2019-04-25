@@ -266,7 +266,7 @@ void Calculate_Monthly(date * &Date, int count, double &Monthly_Balance, double 
 int main() {
   string Command;
   int count = 0, size = 100;
-  int total_income, total_expense, net_asset;
+  double total_income=0, total_expense=0, net_asset=0;
   date *Date = new date[100]; //initialization
   double Budget = -1;
   double Monthly_Balance = 0, Monthly_Income = 0, Monthly_Expense = 0;
@@ -400,7 +400,7 @@ int main() {
       for(string str; getline(in, str);) // line by line
         cout << str << endl;
       cout << ""; // prevent weird characters at EOF
-      cout << " Financial_Report.txt has been created successfully " << endl;
+      cout << "(Financial_Record.txt has been created successfully) " << endl;
       continue;
     }
     if (Command == "B"){ // Budget Setting, representing your planned monthly expense
