@@ -432,6 +432,7 @@ int main() {
     if (Command == "S"){ // Search Records
       int DD2_1, DD2_2, MM2_1, MM2_2, YYYY2_1, YYYY2_2, Search_Type; // ranges
       double Amount1, Amount2;
+      string Search_Type_String, Info;
       cout << "Please enter the range of searching dates: DD1 MM1 YYYY1 DD2 MM2 YYYY2: \n(Results between these dates)" << endl;
       cin >> DD2_1 >> MM2_1 >> YYYY2_1 >> DD2_2 >> MM2_2 >> YYYY2_2;
       cout << "Please enter the Type (I for Income, E for Expense): " << endl;
