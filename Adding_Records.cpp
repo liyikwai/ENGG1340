@@ -54,13 +54,16 @@ void Append_Income(date *&Date, int count) { // Add a record of income
   int DD, MM, YYYY;
   double Income;
   string Info;
+  cout << "Please enter the date" << endl;
   cout << "DD MM YYYY: " << endl;
   cin >> DD >> MM >> YYYY;
   Date[count].Day = DD;
   Date[count].Month = MM;
   Date[count].Year = YYYY;
+  cout << "Please enter the amount" << endl;
   cout << "Income: " << endl;
   cin >> Income;
+  cout << "Please enter the information of the income" << endl;
   cout << "Info: " << endl;
   cout << "E: Earned Income\tF: Portfolio Income\tP: Passive Income" << endl; // Types of Income
   cin >> Info;
@@ -73,13 +76,16 @@ void Append_Expense(date *&Date, int count){ // Add a record of expense
   int DD, MM, YYYY;
   double Expense;
   string Info;
+  cout << "Please enter the date" << endl;
   cout << "DD MM YYYY: " << endl;
   cin >> DD >> MM >> YYYY;
   Date[count].Day = DD;
   Date[count].Month = MM;
   Date[count].Year = YYYY;
+  cout << "Please enter the amount" << endl;
   cout << "Expense: " << endl;
   cin >> Expense;
+  cout << "Please enter the information of the expense" << endl;
   cout << "Info: " << endl;
   cout << "T: Transportation\tF: Food & Drinks\tL: Living & Others" << endl; // Types of Expense
   cin >> Info;
@@ -106,21 +112,26 @@ void Delete(date *&Date, int &size, int DD, int MM, int YYYY, int Del_Type, int 
 void Change(date *&Date, int size, int DD, int MM, int YYYY, int Change_Type, int Number, string Info){ //change from A to B
   int New_DD, New_MM, New_YYYY, New_Type, New_Amount;
   string New_Info, New_Type_String; // B's Info
+  cout << "Please enter the date of the record" << endl;
   cout << "DD MM YYYY: " << endl;
   cin >> New_DD >> New_MM >> New_YYYY;
-  cout << "Change to Income or Expense (input I or E): " << endl;
+  cout << "Change the record to Income or Expense (input I or E): " << endl;
   cin >> New_Type_String;
   if (New_Type_String == "I"){
     New_Type = 2;
+    cout << "Please enter the amount" << endl;
     cout << "Income: " << endl;
     cin >> New_Amount;
+    cout << "Please enter the information of the income" << endl;
     cout << "Info: E: Earned Income\tF: Portfolio Income\tP: Passive Income" << endl;
     cin >> New_Info;
   }
   else if (New_Type_String == "E"){
     New_Type = 1;
+    cout << "Please enter the amount" << endl;
     cout << "Expense: " << endl;
     cin >> New_Amount;
+    cout << "Please enter the information of the expense" << endl;
     cout << "Info: T: Transportation\tF: Food & Drinks\tL: Living & Others" << endl;
     cin >> New_Info;
   }
@@ -161,12 +172,12 @@ void Sort(date *&Date, int count){
       }
 }
 
-void Search(date *&Date, int count, int DD1, int MM1, int YYYY1, int DD2, int MM2, int YYYY2, int Type, int Amount1, int Amount2, string Info){
+void Search(date *&Date, int count, int DD1, int MM1, int YYYY1, int DD2, int MM2, int YYYY2, int Type, double Amount1, double Amount2, string Info){
   int Flag = 0; //flag if there is a match
   for (int i = 0; i < count; i++)
     if (Date[i].Year <= YYYY2 && Date[i].Year >= YYYY1 && Date[i].Month <= MM2 && Date[i].Month >= MM1 && Date[i].Day <= DD2 && Date[i].Day >= DD1){ //if in the range
       if (Date[i].rec.Type == Type)
-        if (Date[i].rec.Amount <= Amount2 && Date[i].rec.Amount >= Amount2)
+        if (Date[i].rec.Amount <= Amount2 && Date[i].rec.Amount >= Amount1)
           if (Date[i].rec.Info == Info){
             cout << Date[i].Day << " " << Date[i].Month << " " << Date[i].Year << " ";
             if (Date[i].rec.Type == 2)
@@ -187,6 +198,7 @@ void Report(date *&Date, int count){ // produce an annual report
   double Expense_T = 0, Expense_F = 0, Expense_L = 0;
   int Year = Date[0].Year;
     cout<<left;
+  cout << "          Financial Report          " << endl;
   cout << "Year : " << "Statistical Data" << "         Amount " << "Percentage " << endl; 
   for (int i = 0; i < count; i++){
     if (Date[i].Year == Year){
@@ -353,8 +365,9 @@ int main() {
     fout.open("Financial_Record.txt");
     if (fout.fail())
       exit(1);
-        fout <<  "Day " << setw(6) << "Month "  << "Year " <<  " I/E    " << " Type " << "Amount" << endl; 
-          fout<<left;
+    fout << "          Financial Record           " << endl;
+    fout <<  "Day " << setw(6) << "Month "  << "Year " <<  " I/E    " << " Type " << "Amount" << endl; 
+    fout<<left;
     for (int i = 0; i < count; i++){
       if (Date[i].rec.Type == 0)
         break;
@@ -380,14 +393,14 @@ int main() {
     }
     if (Command == "B"){ // Budget Setting, representing your planned monthly expense
       while(true){
-        cout << "Set your monthly budget: " << endl;
+        cout << "Please enter your monthly budget: " << endl;
         cin >> Budget;
         if (Budget <= Monthly_Income){
           cout << "You can afford it." << endl;
           break;
         }
         else{
-          cout << "Beyond Your financial capability! Reset your budget!" << endl;
+          cout << "Beyond Your financial capability! Please reset your budget!" << endl;
           break;
         }
       }
@@ -395,14 +408,14 @@ int main() {
     }
     if (Command == "G"){ // Goal Setting, representing your planned expense outside of budget
       if (Monthly_Balance < 0) {
-        cout << "You are bleeding money, change your spending habit first!" << endl;
+        cout << "You are bleeding money. Please change your spending habit first!" << endl;
         continue;
       }
       double Goal, Monthly_Goal;
       cout << "What's your goal?" << endl;
       cin >> Goal;
       cout << "That will take you at least " << Goal / Monthly_Balance << " months." << endl; // spending all budget left
-      cout << "How much per month do you want to save for it?" << endl;
+      cout << "How much per month do you want to save to achieve your goal?" << endl;
       while(true){
         cin >> Monthly_Goal;
         if(Monthly_Goal > Monthly_Balance){
@@ -417,24 +430,24 @@ int main() {
       continue;
     }
     if (Command == "S"){ // Search Records
-      int DD2_1, DD2_2, MM2_1, MM2_2, YYYY2_1, YYYY2_2, Amount1, Amount2, Search_Type; // ranges
-      string Search_Type_String, Info;
-      cout << "Please enter the dates: DD1 MM1 YYYY1 DD2 MM2 YYYY2: \n(Results between these dates)" << endl;
-      cin >> DD2_1 >> MM2_1 >> YYYY2_1 >> DD2_2;
+      int DD2_1, DD2_2, MM2_1, MM2_2, YYYY2_1, YYYY2_2, Search_Type; // ranges
+      double Amount1, Amount2;
+      cout << "Please enter the range of searching dates: DD1 MM1 YYYY1 DD2 MM2 YYYY2: \n(Results between these dates)" << endl;
+      cin >> DD2_1 >> MM2_1 >> YYYY2_1 >> DD2_2 >> MM2_2 >> YYYY2_2;
       cout << "Please enter the Type (I for Income, E for Expense): " << endl;
       cin >> Search_Type_String;
       if (Search_Type_String == "I")
         Search_Type = 2;
       else if (Search_Type_String == "E")
         Search_Type = 1;
-      cout << "Please enter Amount range (Amount1 Amount2): " << endl;
+      cout << "Please enter range of searching amount (Amount1 Amount2): " << endl;
       cin >> Amount1 >> Amount2;
       if (Search_Type == 2){
-        cout << "Please enter the Info (E: Earned Income\tF: Portfolio Income\tP: Passive Income): " << endl;
+        cout << "Please enter the searching info (E: Earned Income\tF: Portfolio Income\tP: Passive Income): " << endl;
         cin >> Info;
       }
       else if (Search_Type == 1){
-        cout << "Please enter the Info (T: Transportation\tF: Food & Drinks\tL: Living & Others): " << endl;
+        cout << "Please enter the searching info (T: Transportation\tF: Food & Drinks\tL: Living & Others): " << endl;
         cin >> Info;
       }
 	    Search(Date, count, DD2_1, MM2_1, YYYY2_1, DD2_2, MM2_2, YYYY2_2, Search_Type, Amount1, Amount2, Info);
