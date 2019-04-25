@@ -200,7 +200,6 @@ void Report(date *&Date, int count){ // produce an annual report
   double Expense_T = 0, Expense_F = 0, Expense_L = 0;
   int Year = Date[0].Year;
     cout<<left;
-  cout << "          Financial Report          " << endl;
   cout << "Year : " << "Statistical Data" << "         Amount " << "Percentage " << endl; 
   for (int i = 0; i < count; i++){
     if (Date[i].Year == Year){
@@ -267,6 +266,7 @@ void Calculate_Monthly(date * &Date, int count, double &Monthly_Balance, double 
 int main() {
   string Command;
   int count = 0, size = 100;
+  int total_income, total_expense, net_asset;
   date *Date = new date[100]; //initialization
   double Budget = -1;
   double Monthly_Balance = 0, Monthly_Income = 0, Monthly_Expense = 0;
@@ -374,14 +374,23 @@ int main() {
       if (Date[i].rec.Type == 0)
         break;
       fout << setw(4)  << Date[i].Day << setw(6) << Date[i].Month << setw(5) << Date[i].Year << " ";
-      if (Date[i].rec.Type == 2)
+      if (Date[i].rec.Type == 2){
         fout << "Income  ";
-      else
+	fout << setw(5)  << Date[i].rec.Info << setw(5) << Date[i].rec.Amount << endl;
+	total_income += Date[i].rec.Amount;
+      }
+      else{
         fout << "Expense ";
-      fout << setw(5)  << Date[i].rec.Info << setw(5) << Date[i].rec.Amount << endl;
+        fout << setw(5)  << Date[i].rec.Info << setw(5) << Date[i].rec.Amount << endl;
+	total_expense += Date[i].rec.Amount;
+      }
     }
+    net_asset = total_income - total_expense;
     fout << "(Income  E: Earned Income;  F: Portfolio Income; P: Passive Income " << endl;
-      fout << " Expense T: Transportation; F: Food & Drinks     L: Living & Others)" << endl;
+    fout << " Expense T: Transportation; F: Food & Drinks     L: Living & Others)" << endl;
+    fout << "Total income: " << total_income << endl;
+    fout << "Total expense: " << total_expense << endl;
+    fout << "Net asset: " << net_asset << endl; 
     fout.close();
     // Calculate all monthlies after all functions that could change records
     Calculate_Monthly(Date, count, Monthly_Balance, Monthly_Income, Monthly_Expense);
@@ -457,8 +466,13 @@ int main() {
 	    Search(Date, count, DD2_1, MM2_1, YYYY2_1, DD2_2, MM2_2, YYYY2_2, Search_Type, Amount1, Amount2, Info);
       continue;
     }
-    if (Command == "R")
+    if (Command == "R"){
+      cout << "          Financial Report          " << endl;
+      cout << "Total income: " << total_income << endl;
+      cout << "Total expense " << total_expense << endl;
+      cout << "Net asset " << net_asset << endl; 
       Report(Date, count);
+    }
     else{ // No such command
       cout << "Command not found" << endl;
       continue;
