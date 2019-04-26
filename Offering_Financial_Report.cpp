@@ -47,18 +47,30 @@ void Report(date *&Date, int count){ // produce an annual report
           Expense_L += Date[i].rec.Amount;
       }
     }
+        double P_Earned=Income_E * 100 / Annual_Income , P_Porfolio = Income_F * 100 / Annual_Income, P_Passive = Income_P * 100 / Annual_Income;
+          double P_Transportataion = Expense_T * 100 / Annual_Expense, P_Food = Expense_F * 100 / Annual_Expense, P_Living = Expense_L * 100 / Annual_Expense; 
+          if (Annual_Income == 0){
+            P_Earned = 0; 
+            P_Passive = 0; 
+            P_Passive = 0;
+          }
+          if (Annual_Expense == 0){
+            P_Transportataion = 0; 
+            P_Food = 0; 
+            P_Living = 0;
+          }
     if (Date[i].Year != Year || i == count - 1) { // if year changes or reaches the last one
       cout<<endl;
       cout<<left; 
       cout << Year << setw(28) << " : Average Monthly Income " << setw(5) << Annual_Income << "  \\ " << endl;
       cout << Year << setw(28) << " : Average Monthly Expense " << setw(5) << Annual_Expense << "  \\ " << endl;
       cout << Year << setw(28) << " : Net Income " << setw(5) << Annual_Income - Annual_Expense << "  \\ " << endl;
-      cout << Year << setw(28) << " : Earned Income " << setw(5) << Income_E << "  " << Income_E * 100 / Annual_Income << "%" << endl;
-      cout << Year << setw(28) << " : Porfolio Income " << setw(5) << Income_F << "  " << Income_F * 100 / Annual_Income << "%" << endl;
-      cout << Year << setw(28) << " : Passive Income " << setw(5) << Income_P << "  " << Income_P * 100 / Annual_Income << "%" << endl;
-      cout << Year << setw(28) << " : Transportation Expense " << setw(5) << Expense_T << "  " << Expense_T * 100 / Annual_Expense << "%" << endl;
-      cout << Year << setw(28) << " : Food & Drinks " << setw(5) << Expense_F << "  " << Expense_F * 100 / Annual_Expense << "%" << endl;
-      cout << Year << setw(28) << " : Living & Others " << setw(5) << Expense_L << "  " << Expense_L * 100 / Annual_Expense << "%" << endl;
+      cout << Year << setw(28) << " : Earned Income " << setw(5) << Income_E << "  " << P_Earned << "%" << endl;
+      cout << Year << setw(28) << " : Porfolio Income " << setw(5) << Income_F << "  " <<  P_Passive << "%" << endl;
+      cout << Year << setw(28) << " : Passive Income " << setw(5) << Income_P << "  " << P_Passive << "%" << endl;
+      cout << Year << setw(28) << " : Transportation Expense " << setw(5) << Expense_T << "  " << P_Transportataion << "%" << endl;
+      cout << Year << setw(28) << " : Food & Drinks " << setw(5) << Expense_F << "  " << P_Food << "%" << endl;
+      cout << Year << setw(28) << " : Living & Others " << setw(5) << Expense_L << "  " << P_Living << "%" << endl;
       Year = Date[i].Year; // year changes
       Annual_Income = Annual_Expense = 0;
       Income_E = Income_F = Income_P = 0;
@@ -72,4 +84,3 @@ void Report(date *&Date, int count){ // produce an annual report
     }
   }
 }
-
