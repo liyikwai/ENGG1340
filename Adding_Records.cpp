@@ -223,12 +223,12 @@ void Report(date *&Date, int count){ // produce an annual report
           Expense_L += Date[i].rec.Amount;
       }
     }
-        double P_Earned=Income_E * 100 / Annual_Income , P_Porfolio = Income_F * 100 / Annual_Income, P_Passive = Income_P * 100 / Annual_Income;
+        double P_Earned=Income_E * 100 / Annual_Income, P_Porfolio = Income_F * 100 / Annual_Income, P_Passive = Income_P * 100 / Annual_Income;
           double P_Transportataion = Expense_T * 100 / Annual_Expense, P_Food = Expense_F * 100 / Annual_Expense, P_Living = Expense_L * 100 / Annual_Expense; 
           if (Annual_Income == 0){
             P_Earned = 0; 
             P_Passive = 0; 
-            P_Passive = 0;
+            P_Porfolio = 0;
           }
           if (Annual_Expense == 0){
             P_Transportataion = 0; 
