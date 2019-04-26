@@ -1,0 +1,1 @@
+void Setting_budget ( int Monthly_Income, double Budget);
