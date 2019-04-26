@@ -68,12 +68,12 @@ int main() {
   double Budget = -1;
   double Monthly_Balance = 0, Monthly_Income = 0, Monthly_Expense = 0;
   while(true) {      
-    cout<<endl;
-    cout<<"----------------------------"<<endl;
-    cout<<"|ENGG1340 Accounting System|"<<endl;
-    cout<<"|          Group73         |"<<endl;
-    cout<<"----------------------------"<<endl;
-    cout<<endl;
+    cout << endl;
+    cout << "----------------------------" << endl;
+    cout << "|ENGG1340 Accounting System|" << endl;
+    cout << "|          Group73         |" << endl;
+    cout << "----------------------------" << endl;
+    cout << endl;
     cout << "Please enter the following commands:" << endl;
     cout << "I: Adding Income" << endl; // Done
     cout << "E: Adding Expense" << endl; // Done
@@ -88,7 +88,6 @@ int main() {
     cin >> Command;
     if (Command == "Q") // Quit
       break;
-	  
     if (Command == "I") { // Adding income
       if (count == size)
         Increase_Size(Date, size);
@@ -96,7 +95,6 @@ int main() {
       count++;
       continue;
     }
-	  
     else if (Command == "E"){ // Adding Expense
       if (count == size)
         Increase_Size(Date, size);
@@ -135,7 +133,6 @@ int main() {
       }
       continue;
     }
-	  
     if (Command == "C"){
       int DD1, MM1, YYYY1;
       double Number1;
@@ -170,6 +167,8 @@ int main() {
     fout << "          Financial Record           " << endl;
     fout <<  "Day " << setw(6) << "Month "  << "Year " <<  " I/E    " << " Type " << "Amount" << endl; 
     fout<<left;
+    total_income = 0;
+    total_expense = 0;
     for (int i = 0; i < count; i++){
       if (Date[i].rec.Type == 0)
         break;
@@ -194,24 +193,32 @@ int main() {
     fout.close();
     // Calculate all monthlies after all functions that could change records
     Calculate_Monthly(Date, count, Monthly_Balance, Monthly_Income, Monthly_Expense);
-	  
     // Functions below will not change records
     if (Command == "P"){ // Present Information
       Reading_record();
       continue;
     }
-	  
     if (Command == "B"){ // Budget Setting, representing your planned monthly expense
-      Setting_budget ( Monthly_Income, Budget);
+      while(true){
+        cout << "Please enter your monthly budget: " << endl;
+        cin >> Budget;
+        if (Budget <= Monthly_Income){
+          cout << "You can afford it." << endl;
+          break;
+        }
+        else{
+          cout << "Beyond Your financial capability! Please reset your budget!" << endl;
+          break;
+        }
+      }
       continue;
     }
-	
     if (Command == "G"){ // Goal Setting, representing your planned expense outside of budget
       if (Monthly_Balance < 0) {
         cout << "You are bleeding money. Please change your spending habit first!" << endl;
         continue;
       }
-            Setting_goal( Monthly_Balance );
+            setting_goal( Monthly_Balance );
       continue;
     }
 
@@ -240,7 +247,6 @@ int main() {
 	    Search(Date, count, DD2_1, MM2_1, YYYY2_1, DD2_2, MM2_2, YYYY2_2, Search_Type, Amount1, Amount2, Info);
       continue;
     }
-	  
     if (Command == "R"){
       cout << "          Financial Report          " << endl;
       cout << "Total income: " << total_income << endl;
@@ -253,7 +259,6 @@ int main() {
       continue;
     }
   }
-	
   delete[] Date; //release memory
   return 0;
-}}
+}
