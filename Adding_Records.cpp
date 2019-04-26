@@ -270,6 +270,25 @@ void Reading_record(){
   cout << "(Financial_Record.txt has been created successfully) " << endl;
 }
 
+void setting_goal( int Monthly_Balance ){
+  double Goal, Monthly_Goal;
+  cout << "What's your goal?" << endl;
+  cin >> Goal;
+  cout << "That will take you at least " << Goal / Monthly_Balance << " months." << endl; // spending all budget left
+  cout << "How much per month do you want to save to achieve your goal?" << endl;
+  while(true){
+    cin >> Monthly_Goal;
+    if(Monthly_Goal > Monthly_Balance){
+      cout << "That's beyond your financial capability!" << endl;
+      break;
+    }
+    else{
+      cout << "That will take you " << Goal / Monthly_Goal << " months to achieve!" << endl;
+      break;
+    }
+  }
+}
+
 int main() {
   string Command;
   int count = 0, size = 100;
@@ -426,24 +445,10 @@ int main() {
         cout << "You are bleeding money. Please change your spending habit first!" << endl;
         continue;
       }
-      double Goal, Monthly_Goal;
-      cout << "What's your goal?" << endl;
-      cin >> Goal;
-      cout << "That will take you at least " << Goal / Monthly_Balance << " months." << endl; // spending all budget left
-      cout << "How much per month do you want to save to achieve your goal?" << endl;
-      while(true){
-        cin >> Monthly_Goal;
-        if(Monthly_Goal > Monthly_Balance){
-          cout << "That's beyond your financial capability!" << endl;
-          break;
-        }
-        else{
-          cout << "That will take you " << Goal / Monthly_Goal << " months to achieve!" << endl;
-          break;
-        }
-      }
+            setting_goal( Monthly_Balance );
       continue;
     }
+
     if (Command == "S"){ // Search Records
       int DD2_1, DD2_2, MM2_1, MM2_2, YYYY2_1, YYYY2_2, Search_Type; // ranges
       double Amount1, Amount2;
