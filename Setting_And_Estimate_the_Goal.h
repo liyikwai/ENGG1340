@@ -1,1 +1,0 @@
-void Setting_goal( int Monthly_Balance );
