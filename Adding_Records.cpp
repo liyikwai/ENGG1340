@@ -180,7 +180,7 @@ void Search(date *&Date, int count, int DD1, int MM1, int YYYY1, int DD2, int MM
       if (Date[i].rec.Type == Type)
         if (Date[i].rec.Amount <= Amount2 && Date[i].rec.Amount >= Amount1)
           if (Date[i].rec.Info == Info){
-	    cout <<  "Day " << setw(6) << "Month "  << "Year " <<  " I/E    " << " Type " << "Amount" << endl;
+	          cout <<  "Day " << setw(6) << "Month "  << "Year " <<  " I/E    " << " Type " << "Amount" << endl;
             cout << Date[i].Day << "  " << Date[i].Month << "    " << Date[i].Year << "  ";
             if (Date[i].rec.Type == 2)
               cout << "Income" << "  ";
@@ -199,7 +199,7 @@ void Report(date *&Date, int count){ // produce an annual report
   double Income_E = 0, Income_F = 0, Income_P = 0;
   double Expense_T = 0, Expense_F = 0, Expense_L = 0;
   int Year = Date[0].Year;
-    cout<<left;
+  cout << left;
   cout << "Year : " << "Statistical Data" << "         Amount " << "Percentage " << endl; 
   for (int i = 0; i < count; i++){
     if (Date[i].Year == Year){
@@ -223,8 +223,8 @@ void Report(date *&Date, int count){ // produce an annual report
       }
     }
     if (Date[i].Year != Year || i == count - 1) { // if year changes or reaches the last one
-      cout<<endl;
-      cout<<left; 
+      cout << endl;
+      cout << left; 
       cout << Year << setw(28) << " : Average Monthly Income " << setw(5) << Annual_Income << "  \\ " << endl;
       cout << Year << setw(28) << " : Average Monthly Expense " << setw(5) << Annual_Expense << "  \\ " << endl;
       cout << Year << setw(28) << " : Net Income " << setw(5) << Annual_Income - Annual_Expense << "  \\ " << endl;
@@ -297,12 +297,12 @@ int main() {
   double Budget = -1;
   double Monthly_Balance = 0, Monthly_Income = 0, Monthly_Expense = 0;
   while(true) {      
-    cout<<endl;
-    cout<<"----------------------------"<<endl;
-    cout<<"|ENGG1340 Accounting System|"<<endl;
-    cout<<"|          Group73         |"<<endl;
-    cout<<"----------------------------"<<endl;
-    cout<<endl;
+    cout << endl;
+    cout << "----------------------------" << endl;
+    cout << "|ENGG1340 Accounting System|" << endl;
+    cout << "|          Group73         |" << endl;
+    cout << "----------------------------" << endl;
+    cout << endl;
     cout << "Please enter the following commands:" << endl;
     cout << "I: Adding Income" << endl; // Done
     cout << "E: Adding Expense" << endl; // Done
