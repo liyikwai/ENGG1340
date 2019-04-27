@@ -22,7 +22,7 @@ void Delete(date *&Date, int &size, int &count, int DD, int MM, int YYYY, int De
 }
 
 void Change(date *&Date, int size, int DD, int MM, int YYYY, int Change_Type, int Number, string Info)
-{ //change from A to B
+{ //change from A to B by searching first
   int New_DD, New_MM, New_YYYY, New_Type, New_Amount;
   string New_Info, New_Type_String; // B's Info
   cout << "Please enter the date of the record" << endl;
