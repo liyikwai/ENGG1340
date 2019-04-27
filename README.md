@@ -57,3 +57,17 @@
   7. Setting_And_Estimating_Goals
      - _Input_: Command 'G' represent budget setting, a string representing the user's goal and an double number denoting the money they need
      - _Output_: If the user cannot reach the goal, a warning signal will be given. Otherwise, a double number denoting integer representing the days the user still needed. 
+
+### **4.Compliation**
+
+To compile
+
+$ make
+
+To run
+
+$ ./Main
+
+To clean
+
+$ make clean
