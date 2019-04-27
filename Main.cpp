@@ -64,31 +64,27 @@ int main()
         continue;
       }
 
-    if (Command == "D")
-    { // Delete Records
+    if (Command == "D"){ // Delete Records
       int DD0, MM0, YYYY0;
       double Number0;
       string Del_Type, Info0;
-      cout << "Please enter the information of the record to be deleted." << endl;
       cout << "Deleting Income or Expense? I: Income E: Expense " << endl; // Search before delete
       cin >> Del_Type;
       cout << "DD MM YYYY: " << endl;
       cin >> DD0 >> MM0 >> YYYY0;
-      if (Del_Type == "I")
-      {
+      if (Del_Type == "I"){
         cout << "Income: " << endl;
         cin >> Number0;
         cout << "Info: E: Earned Income\tF: Portfolio Income\tP: Passive Income" << endl;
         cin >> Info0;
-        Delete(Date, size, DD0, MM0, YYYY0, 2, Number0, Info0);
+        Delete(Date, size, count, DD0, MM0, YYYY0, 2, Number0, Info0);
       }
-      else if (Del_Type == "E")
-      {
+      else if (Del_Type == "E"){
         cout << "Expense: " << endl;
         cin >> Number0;
         cout << "Info: T: Transportation\tF: Food & Drinks\tL: Living & Others" << endl;
         cin >> Info0;
-        Delete(Date, size, DD0, MM0, YYYY0, 1, Number0, Info0);
+        Delete(Date, size, count, DD0, MM0, YYYY0, 1, Number0, Info0);
       }
       continue;
     }
