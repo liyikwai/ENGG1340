@@ -3,20 +3,19 @@
 #include "DeleteChange.h"
 #include "Definition.h"
 using namespace std;
-void Delete(date *&Date, int &size, int DD, int MM, int YYYY, int Del_Type, int Number, string Info)
-{
-  date *Temp = new date[size - 1];
+
+void Delete(date *&Date, int &size, int &count, int DD, int MM, int YYYY, int Del_Type, int Number, string Info){
+  date *Temp = new date [size-1];
   int k = 0;
-  size--;
-  for (int i = 0; i < size - 1; i++)
-  {
-    if (Date[i].Day == DD && Date[i].Month == MM && Date[i].Year == YYYY)
+  count--;
+  for (int i = 0; i < size - 1; i++){
+    if(Date[i].Day == DD && Date[i].Month == MM && Date[i].Year == YYYY)
       if (Date[i].rec.Type == Del_Type && Date[i].rec.Amount == Number && Date[i].rec.Info == Info)
-        k++; // Jump over the aim
+        k++;  // Jump over the aim
     Temp[i] = Date[k];
     k++;
   }
-  delete[] Date; //release memory
+  delete[] Date;  //release memory
   Date = Temp;
 }
 
