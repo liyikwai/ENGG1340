@@ -25,19 +25,31 @@
 ### **3. Program Feature**
   Input and output specification
   
-  Users are strongly advised to see the information below and follow the instructions on input during use.
-  1. Adding_Records
+  The program stores records of user's financial activity, including income and expense. Each entry comprises of the date (day, month and year) and amount, type (income/expense), as well as information (source of income/purpose of expense)
+  
+  1. Adding Records
+  User input information about their financial activity, including all the infomation stated above. The program then stores it in a dynamic array `Date[]`.
       
-  2. Offering_Basic_Information
+  2. Editing_And_Deleting
+  To edit or delete, first the program receives user input of the six variables stated above and then go through the records to search for the one that the user is indicating. Then the program replace the old data with the new ones.
  
-  3. Editing_And_Deleting
+  Before all the functions below, latest records will be recorded into the file `Financial_Record.txt`
+  
+  3. Offering_Basic_Information
+  The program reads file and then print it onto the screen.
     
   4. Searching_The_Records
+  The program takes six variables from the user and go through the records to locate the matching entry.
  
   5. Offering_Financial_Report
+  The program offers a financial detailed report based on the records.
+  
   6. Setting_Budget
+  User sets a monthly budget for expense. The program considers the user's average monthly income and decides for the user whether it would be an affordable one.
  
-  7. Setting_And_Estimating_Goals
+  7. Setting_oals
+  User sets a goal that he/she wishes to save using her balance (income - expense). Is the user is already bleeding money on a monthly basis, the program will warn the user. Otherwise, the program will first calculate how much time the user need if he/she spends all his/her balance on it. Then, the program will ask the user how much money hs/she is willing to save per month for it. The program will then calculate the time needed.
+  
 ### **4. Compliation**
 To compile
 ```
@@ -57,7 +69,7 @@ List of Navigation
 Please enter the following commands:
 I: Adding Income
 E: Adding Expense
-P: Present Information and Save it to a file
+P: Present Information and Save it to a File
 C: Change Records
 D: Delete Records
 S: Search Records
@@ -257,5 +269,9 @@ Q: Quit
 Throughout our testing, we have found the program easily dive into unexpected error and unwanted loop. We have not included enough checks on our user input, and just asssumed they will keep their input right.
 
 However, that is not true given our testing experience. Using a program without a UI is extremely easy to make mistakes. Our program still needs an efficient mechanisms to deal with them.
+
 In addition, the program is not smart enough. We still need all infomation the user could provide to locate a record, which could be avoided by better managing and monitering our data.
+
+Also, we have used file to record user data, but have not developed mechanisms for user to continue using this program after closing and reopening it. We should build a function that reads file record and support use after relaunching.
+
 Furthermore, lacking professional knowledge in the financial field has led us develop a tool that might not cater to the needs of a more professional user. We still need more understanding of finance and gain knowledge to develop a more powerful tool.
