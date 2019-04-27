@@ -29,9 +29,9 @@
 ### **3.Program Feature**
   Input and output specification
   1. Adding_Records
-     - _Input_: Command 'I' or 'E' represents adding income or expenses, 3 integer numbers indicating the day, month, year, 2 double numbers denoting the user's income or expenses, a string for account code and a string denoting income source or expense purposes. 
+     - _Input_: Command 'I' or 'E' represents adding income or expenses, 3 integer numbers indicating the day, month, year, a double numbers denoting the user's income or expenses,  a string denoting income source or expense purposes. 
      - _Output_: A sturct dynamic array of the records. The record will be saved to a file named "Records.txt"
-     
+      
   2. Offering_Basic_Information
      - _Input_: Command 'P'. Opening file "Records.txt"
      - _Output_: Print the information include the date, types of income or expense and amount.
