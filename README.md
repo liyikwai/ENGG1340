@@ -31,19 +31,19 @@
   
   Users are strongly advised to see the information below and follow the instructions on input during use.
   1. Adding_Records
-     - _Input_: Command 'I' or 'E' represents adding income or expenses, 3 integer numbers indicating the day, month, year, a double numbers denoting the user's income or expenses,  a string denoting income source or expense purposes. 
-     - _Output_: A sturct dynamic array of the records. The record will be saved to a file named "Records.txt".
+     - _Input_: Command `I` or `E` represents adding income or expenses, 3 integer numbers indicating the day, month, year, a double numbers denoting the user's income or expenses,  a string denoting income source or expense purposes. 
+     - _Output_: A sturct dynamic array of the records. The record will be saved to a file named `"Records.txt"`.
       
   2. Offering_Basic_Information
-     - _Input_: Command 'P'. Opening file "Records.txt"
+     - _Input_: Command `P`. Opening file `"Records.txt"`
      - _Output_: Print the information include the date, types of income or expense and amount to the screen.
      
   3. Editing_And_Deleting
-     - _Input_: For editing the datas, enter command 'C'. Input 3 integers representing day, month, year and amount. A string representing the type of the correspond income of expense. After that, input the new date, amount and type of this record. For deleting the datas,enter command 'D'. Then, input the day, month, year, amount and type of the income of expense to locate the position of the record to be deleted. 
+     - _Input_: For editing the datas, enter command `C`. Input 3 integers representing day, month, year and amount. A string representing the type of the correspond income of expense. After that, input the new date, amount and type of this record. For deleting the datas,enter command `D`. Then, input the day, month, year, amount and type of the income of expense to locate the position of the record to be deleted. 
      - _Output_: A new struct dynamic array of the record after editing or deleting.
      
   4. Searching_The_Records
-     - _Input_: Command 'S'. 2 combinations of 3 integers representing day, month and year to specify the range of searching date. A string representing the type of the income or expense. 2 double number representing the range of the searching amount.
+     - _Input_: Command `S`. 2 combinations of 3 integers representing day, month and year to specify the range of searching date. A string representing the type of the income or expense. 2 double number representing the range of the searching amount.
      - _Output_: Searching information according to the range set from user's inputs
      
   5. Offering_Financial_Report
@@ -51,11 +51,11 @@
      - _Output_: Multiple lines containg different statistical parameter. Each line have 1integer denoting the year. 1 string representing the type of the record. 1 double number denoting the correspond data. 1 integer representing the percentage of the type of records.
      
   6. Setting_Budget
-     - _Input_: Command 'B'. A interger representing the monthly budget. 
+     - _Input_: Command `B`. A interger representing the monthly budget. 
      - _Output_: Set a monthly budget, and see if your current average monthly income can support this budget. If yes, you are told so. If not, you are advised to change your budget.
      
   7. Setting_And_Estimating_Goals
-     - _Input_: Command 'G' represent budget setting, a string representing the user's goal and an double number denoting the money they need
+     - _Input_: Command `G` represent budget setting, a string representing the user's goal and an double number denoting the money they need
      - _Output_: If the user cannot reach the goal, a warning signal will be given. Otherwise, a double number denoting integer representing the days the user still needed. 
 
 ### **4. To run this project**
