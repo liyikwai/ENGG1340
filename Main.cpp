@@ -126,11 +126,7 @@ int main()
     if (fout.fail())
       exit(1);
     fout << "          Financial Record           " << endl;
-    fout << "Day " << setw(6) << "Month "
-         << "Year "
-         << " I/E    "
-         << " Type "
-         << "Amount" << endl;
+    fout << "Day " << setw(6) << "Month " << "Year " << " I/E    " << " Type " << "Amount" << endl;
     fout << left;
     for (int i = 0; i < count; i++)
     {
