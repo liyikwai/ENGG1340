@@ -30,3 +30,5 @@ Sort.o: Sort.cpp Sort.h
 Definition.o: Definition.cpp
 	g++ -c Definition.cpp
 
+clean:
+	rm *.o Main
