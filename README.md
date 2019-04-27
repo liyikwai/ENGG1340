@@ -196,8 +196,8 @@ Day Month Year  I/E     Type Amount
 25  12    2018  Expense  L
 15  12    2018  Expense  L
 ```
- - _Input_: Command 'S'. 2 combinations of 3 integers representing day, month and year to specify the range of searching date. A string representing the type of the income or expense. 2 double number representing the range of the searching amount.
- - _Output_: Searching information according to the range set from user's inputs
+ _Input_: Command 'S'. 2 combinations of 3 integers representing day, month and year to specify the range of searching date. A string representing the type of the income or expense. 2 double number representing the range of the searching amount.
+ _Output_: Searching information according to the range set from user's inputs
  
  7. Report Records
 ```
@@ -218,8 +218,8 @@ Year : Statistical Data         Amount Percentage
 2018 : Food & Drinks            0      0%
 2018 : Living & Others          11000  95.6522%
 ```
-     - _Input_: A struct dynamic array containing information of a series of the reords .
-     - _Output_: Multiple lines containg different statistical parameter. Each line have 1integer denoting the year. 1 string representing the type of the record. 1 double number denoting the correspond data. 1 integer representing the percentage of the type of records.
+  _Input_: A struct dynamic array containing information of a series of the reords .
+  _Output_: Multiple lines containg different statistical parameter. Each line have 1integer denoting the year. 1 string representing the type of the record. 1 double number denoting the correspond data. 1 integer representing the percentage of the type of records.
  
  
   8. Budget Setting
@@ -228,12 +228,21 @@ B: Budget Setting
 ```
  _Input_: Command 'D' represents deleting records
  
+```
+Please enter your monthly budget: 
+```
+ _Output_: Set a monthly budget, and see if your current average monthly income can support this budget. If yes, you are told so. If not, you are advised to change your budget.
+ 
  
   9. Goal Setting
 ```
 G: Goal Setting
 ```
- _Input_: Command 'D' represents deleting records
+ _Input_: Command 'G' represents setting goal
+ 
+ ```
+You are bleeding money. Please change your spending habit first!
+```
  
 
   10. Goal Setting
