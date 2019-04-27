@@ -40,13 +40,18 @@ void Report(date *&Date, int count)
           Expense_L += Date[i].rec.Amount;
       }
     }
-        double P_Earned = Income_E * 100 / Annual_Income, P_Porfolio = Income_F * 100 / Annual_Income, P_Passive = Income_P * 100 / Annual_Income, P_Transportation = Expense_T * 100 / Annual_Expense, P_Food = Expense_F * 100/Annual_Expense, P_living = Expense_L * 100 / Annual_Expense;
-          if (Annual_Income == 0){
-            P_Earned = 0; P_Porfolio = 0; P_Passive = 0;
-          }
-          if (Annual_Expense == 0){
-            P_Transportation = 0; P_Food = 0; P_living = 0;
-          }
+    double P_Earned = 0, P_Porfolio = 0, P_Passive = 0;
+    double P_Transportation = 0, P_Food = 0, P_living = 0;
+    if (Annual_Income != 0){
+      P_Earned = Income_E * 100 / Annual_Income;
+      P_Porfolio = Income_F * 100 / Annual_Income;
+      P_Passive = Income_P * 100 / Annual_Income;
+    }
+    if (Annual_Expense != 0){
+      P_Transportation = Expense_T * 100 / Annual_Expense;
+      P_Food = Expense_F * 100 / Annual_Expense;
+      P_living = Expense_L * 100 / Annual_Expense;
+    }
 
     if (Date[i].Year != Year || i == count - 1)
     { // if year changes or reaches the last one
