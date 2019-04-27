@@ -182,4 +182,62 @@ Info: E: Earned Income	F: Portfolio Income	P: Passive Income
 D: Delete Records
 ```
  _Input_: Command 'D' represents deleting records
+ 
 
+6. Search Records
+```
+S: Search Records
+```
+ _Input_: Command 'D' represents deleting records
+ 
+ ```
+          Searching Result          
+Day Month Year  I/E     Type Amount
+25  12    2018  Expense  L
+15  12    2018  Expense  L
+```
+ - _Input_: Command 'S'. 2 combinations of 3 integers representing day, month and year to specify the range of searching date. A string representing the type of the income or expense. 2 double number representing the range of the searching amount.
+ - _Output_: Searching information according to the range set from user's inputs
+ 
+ 7. Report Records
+```
+R: Report
+```
+ _Input_: Command 'D' represents deleting records
+ 
+  ```
+Year : Statistical Data         Amount Percentage 
+
+2018 : Average Monthly Income   7000   \ 
+2018 : Average Monthly Expense  11500  \ 
+2018 : Net Income               -4500  \ 
+2018 : Earned Income            7000   100%
+2018 : Porfolio Income          0      0%
+2018 : Passive Income           0      0%
+2018 : Transportation Expense   500    4.34783%
+2018 : Food & Drinks            0      0%
+2018 : Living & Others          11000  95.6522%
+```
+     - _Input_: A struct dynamic array containing information of a series of the reords .
+     - _Output_: Multiple lines containg different statistical parameter. Each line have 1integer denoting the year. 1 string representing the type of the record. 1 double number denoting the correspond data. 1 integer representing the percentage of the type of records.
+ 
+ 
+  8. Budget Setting
+```
+B: Budget Setting
+```
+ _Input_: Command 'D' represents deleting records
+ 
+ 
+  9. Goal Setting
+```
+G: Goal Setting
+```
+ _Input_: Command 'D' represents deleting records
+ 
+
+  10. Goal Setting
+```
+Q: Quit
+```
+ _Input_: Command 'Q' represents terminate the programmme.
