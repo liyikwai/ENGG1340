@@ -36,6 +36,7 @@ void setting_goal(int Monthly_Balance)
       if (Monthly_Balance == 0){
         cout << "Sorry, you do have any income." << endl;
           return;
+        
      }
       else{
         Estimate = Goal / Monthly_Balance;
