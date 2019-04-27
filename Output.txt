@@ -1,0 +1,396 @@
+
+----------------------------
+|ENGG1340 Accounting System|
+|          Group73         |
+----------------------------
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
+Please enter the date
+DD MM YYYY: 
+Please enter the amount
+Income: 
+Please enter the information of the income
+Info: 
+E: Earned Income	F: Portfolio Income	P: Passive Income
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
+Please enter the date
+DD MM YYYY: 
+Please enter the amount
+Expense: 
+Please enter the information of the expense
+Info: 
+T: Transportation	F: Food & Drinks	L: Living & Others
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
+Please enter the date
+DD MM YYYY: 
+Please enter the amount
+Expense: 
+Please enter the information of the expense
+Info: 
+T: Transportation	F: Food & Drinks	L: Living & Others
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
+Please enter the date
+DD MM YYYY: 
+Please enter the amount
+Expense: 
+Please enter the information of the expense
+Info: 
+T: Transportation	F: Food & Drinks	L: Living & Others
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
+
+          Financial Record           
+Day Month Year  I/E     Type Amount
+30  1     2019  Expense F    3000 
+30  1     2019  Expense L    2500 
+30  1     2019  Expense T    400  
+1   1     2019  Income  E    30000
+(Income  E: Earned Income;  F: Portfolio Income; P: Passive Income 
+ Expense T: Transportation; F: Food & Drinks     L: Living & Others)
+Total income: 30000
+Total expense: 5900
+Net asset: 24100
+(Financial_Record.txt has been created successfully) 
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
+Please enter the information of the record to be changed 
+Change Income or Expense? I: Income E: Expense 
+DD MM YYYY: 
+Amount: 
+Info: E: Earned Income	F: Portfolio Income	P: Passive Income
+Please enter the date of the record
+DD MM YYYY: 
+Change the record to Income or Expense (input I or E): 
+Please enter the amount
+Income: 
+Please enter the information of the income
+Info: E: Earned Income	F: Portfolio Income	P: Passive Income
+No such records found
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
+
+          Financial Record           
+Day Month Year  I/E     Type Amount
+30  1     2019  Expense F    3000 
+30  1     2019  Expense L    2500 
+30  1     2019  Expense T    400  
+1   1     2019  Income  E    40000
+(Income  E: Earned Income;  F: Portfolio Income; P: Passive Income 
+ Expense T: Transportation; F: Food & Drinks     L: Living & Others)
+Total income: 40000
+Total expense: 5900
+Net asset: 34100
+(Financial_Record.txt has been created successfully) 
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
+
+          Financial Report          
+Total income: 40000
+Total expense 5900
+Net asset 34100
+Year : Statistical Data         Amount Percentage 
+
+2019 : Average Monthly Income   40000  \ 
+2019 : Average Monthly Expense  5900   \ 
+2019 : Net Income               34100  \ 
+2019 : Earned Income            40000  100%
+2019 : Porfolio Income          0      0%
+2019 : Passive Income           0      0%
+2019 : Transportation Expense   400    6.77966%
+2019 : Food & Drinks            3000   50.8475%
+2019 : Living & Others          2500   42.3729%
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
+
+Please enter your monthly budget: 
+You can afford it.
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
+
+How much you need for your goal (E.G. Buying property or a vehicle)?
+That will take you at least 0.293255 month to accomplish.
+How much per month do you want to save to achieve your goal?
+That will take you 10 months to achieve!
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
+Please enter the date
+DD MM YYYY: 
+Please enter the amount
+Income: 
+Please enter the information of the income
+Info: 
+E: Earned Income	F: Portfolio Income	P: Passive Income
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
+Please enter the date
+DD MM YYYY: 
+Please enter the amount
+Expense: 
+Please enter the information of the expense
+Info: 
+T: Transportation	F: Food & Drinks	L: Living & Others
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
+Please enter the date
+DD MM YYYY: 
+Please enter the amount
+Expense: 
+Please enter the information of the expense
+Info: 
+T: Transportation	F: Food & Drinks	L: Living & Others
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
+Please enter the date
+DD MM YYYY: 
+Please enter the amount
+Expense: 
+Please enter the information of the expense
+Info: 
+T: Transportation	F: Food & Drinks	L: Living & Others
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
+Please enter the date
+DD MM YYYY: 
+Please enter the amount
+Income: 
+Please enter the information of the income
+Info: 
+E: Earned Income	F: Portfolio Income	P: Passive Income
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
+Deleting Income or Expense? I: Income E: Expense 
+DD MM YYYY: 
+Income: 
+Info: E: Earned Income	F: Portfolio Income	P: Passive Income
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
+
+          Financial Record           
+Day Month Year  I/E     Type Amount
+28  2     2019  Expense L    4000 
+28  2     2019  Expense F    2000 
+28  2     2019  Expense T    300  
+1   2     2019  Income  E    40000
+30  1     2019  Expense F    3000 
+30  1     2019  Expense L    2500 
+30  1     2019  Expense T    400  
+1   1     2019  Income  E    40000
+(Income  E: Earned Income;  F: Portfolio Income; P: Passive Income 
+ Expense T: Transportation; F: Food & Drinks     L: Living & Others)
+Total income: 80000
+Total expense: 12200
+Net asset: 67800
+(Financial_Record.txt has been created successfully) 
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
+
+          Financial Report          
+Total income: 80000
+Total expense 12200
+Net asset 67800
+Year : Statistical Data         Amount Percentage 
+
+2019 : Average Monthly Income   80000  \ 
+2019 : Average Monthly Expense  12200  \ 
+2019 : Net Income               67800  \ 
+2019 : Earned Income            80000  100%
+2019 : Porfolio Income          0      0%
+2019 : Passive Income           0      0%
+2019 : Transportation Expense   700    5.7377%
+2019 : Food & Drinks            5000   40.9836%
+2019 : Living & Others          6500   53.2787%
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
