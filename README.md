@@ -58,22 +58,24 @@
      - _Input_: Command 'G' represent budget setting, a string representing the user's goal and an double number denoting the money they need
      - _Output_: If the user cannot reach the goal, a warning signal will be given. Otherwise, a double number denoting integer representing the days the user still needed. 
 
-### **4. Compliation**
+### **4. To run this project**
+
+Clone the repo
+
+```git clone https://github.com/liyikwai/ENGG1340.git```
+
+Go to project directory
+
+```cd ENGG1340```
 
 To compile
 
-```
-$ make
-```
+```$ make```
 
 To run
 
-```
-$ ./Main
-```
+```$ ./Main```
 
 To clean
 
-```
-$ make clean
-```
+```$ make clean```
