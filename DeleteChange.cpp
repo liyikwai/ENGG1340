@@ -61,8 +61,8 @@ void Change(date *&Date, int size, int DD, int MM, int YYYY, int Change_Type, in
         Date[i].rec.Type = New_Type;
         Date[i].rec.Amount = New_Amount;
         Date[i].rec.Info = New_Info;
-        break;
         Flag = 1;
+        break;
       }
   if (Flag == 0) //there is no match
     cout << "No such records found" << endl;
