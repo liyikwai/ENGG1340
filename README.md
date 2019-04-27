@@ -30,19 +30,35 @@
   Input and output specification
   
   Users are strongly advised to see the information below and follow the instructions on input during use.
-  1. Adding_Records
+  1. Adding Record
+     - _Input_: Command `I` or `E` represents adding income or expenses, 3 integer numbers indicating the day, month, year, a double numbers denoting the user's income or expenses, and then a string denoting income source or expense purposes. 
+     -_Mechanism_: All the information above will be saved in a structure variable in a dynamic array.
+     - _Output_: The record will be saved to a file named "Records.txt".
       
-  2. Offering_Basic_Information
- 
-  3. Editing_And_Deleting
-    
-  4. Searching_The_Records
- 
+  2. Present Basic Information
+     - _Input_: Command `P`. 
+     -_Mechanism_: Opening file `"Records.txt"`, scan all the information in the file and display it on the screen.
+     - _Output_: Print the information include the date, types of income or expense and amount to the screen.
+     
+  3. Delete and Change Record
+     - _Input and Mechanism_: To Change record, enter command `C`. Input the day, month, year, amount, type (income/expense) and info, of which the user wishes to change. After that, input all the new information to cover the old ones. For deleting the data, enter command 'D'. Input the type (income/expense), day, month, year, amount and info to locate the position of the record, and delete the record.
+     - _Output_: If successful, none; otherwise, a notice indicating the failure.
+     
+  4. Search
+     - _Input_: Command 'S'. 2 combinations of 3 integers representing day, month and year to specify the range of searching date. A string representing the type of the income or expense. 2 double number representing the range of the searching amount.
+     - _Output_: Searching information according to the range set from user's inputs
+     
   5. Offering_Financial_Report
-
+     - _Input_: A struct dynamic array containing information of a series of the reords .
+     - _Output_: Multiple lines containg different statistical parameter. Each line have 1integer denoting the year. 1 string representing the type of the record. 1 double number denoting the correspond data. 1 integer representing the percentage of the type of records.
+     
   6. Setting_Budget
- 
+     - _Input_: Command 'B'. A interger representing the monthly budget. 
+     - _Output_: Set a monthly budget, and see if your current average monthly income can support this budget. If yes, you are told so. If not, you are advised to change your budget.
+     
   7. Setting_And_Estimating_Goals
+     - _Input_: Command 'G' represent budget setting, a string representing the user's goal and an double number denoting the money they need
+     - _Output_: If the user cannot reach the goal, a warning signal will be given. Otherwise, a double number denoting integer representing the days the user still needed. 
 
 ### **4. Compliation**
 
@@ -84,6 +100,7 @@ Q: Quit
 1. Adding Income 
 ```
 I: Adding Income
+
 ```
   _Input_: _Input_: Command 'I' represents adding income
 ```
@@ -96,14 +113,14 @@ Info:
 E: Earned Income	F: Portfolio Income	P: Passive Income
 ```
   _Input_: 3 integer numbers indicating the day, month, year, a double numbers denoting the user's income or expenses,  a string denoting income source or expense purposes.
-  _Output_: A sturct dynamic array of the records. The record will be saved to a file named "Records.txt".
+  _Output_: A sturct dynamic array of the records. 
 
 
 2. Adding Expense
 ```
 E: Adding Expense
 ```
- _Input_: _Input_: Command 'E' represents adding expenses. 
+ _Input_: _Input_: Command 'E' represents adding income or expenses
  
  ```
 DD MM YYYY: 
@@ -121,7 +138,7 @@ T: Transportation	F: Food & Drinks	L: Living & Others
 ```
 P: Present Information and Save it to a file
 ```
-   _Input_: Command 'P' represents show the information of the records
+   _Input_: Command 'P' represents adding income or expenses
   
 ```
           Financial Record           
@@ -138,7 +155,7 @@ Net asset: -4500
 (Financial_Record.txt has been created successfully) 
 
 ``` 
-   _Output_: The detail of the records
+   _Output_: The detail of the information
 
 4. Change Records
 ```
@@ -160,21 +177,20 @@ Please enter the information of the income
 Info: E: Earned Income	F: Portfolio Income	P: Passive Income
 ```
   _Input_: For changing the data, input 3 integers representing day, month, year and amount. A string representing the type of the correspond income of expense. After that, input the new date, amount and type of this record.
-  _Output_: A changed sturct dynamic array of the records.
 
 
 5. Delete Records
 ```
 D: Delete Records
 ```
- _Input_: For deleting the datas,enter command 'D'. Then, input the day, month, year, amount and type of the income of expense to locate the position of the record to be deleted. 
- _Output_: A new struct dynamic array of the record after deleting.
+ _Input_: Command 'D' represents deleting records
+ 
 
 6. Search Records
 ```
 S: Search Records
 ```
- _Input_: Command 'S' represents search the records
+ _Input_: Command 'D' represents deleting records
  
  ```
           Searching Result          
@@ -185,12 +201,11 @@ Day Month Year  I/E     Type Amount
  _Input_: Command 'S'. 2 combinations of 3 integers representing day, month and year to specify the range of searching date. A string representing the type of the income or expense. 2 double number representing the range of the searching amount.
  _Output_: Searching information according to the range set from user's inputs
  
- 
  7. Report Records
 ```
 R: Report
 ```
- _Input_: Command 'R' represents reporting records
+ _Input_: Command 'D' represents deleting records
  
   ```
 Year : Statistical Data         Amount Percentage 
@@ -213,18 +228,10 @@ Year : Statistical Data         Amount Percentage
 ```
 B: Budget Setting
 ```
- _Input_: Command 'B' represents setting the budget.
+ _Input_: Command 'D' represents deleting records
  
 ```
 Please enter your monthly budget: 
-```
-
-```
-Beyond Your financial capability! Please reset your budget! 
-```
-
-```
-You can afford it. 
 ```
  _Output_: Set a monthly budget, and see if your current average monthly income can support this budget. If yes, you are told so. If not, you are advised to change your budget.
  
@@ -233,26 +240,15 @@ You can afford it.
 ```
 G: Goal Setting
 ```
- _Input_: Command 'G' represents setting the goal
+ _Input_: Command 'G' represents setting goal
  
  ```
 You are bleeding money. Please change your spending habit first!
 ```
  
-_Input_: An double number denoting the money they need
-_Output_: If the user cannot reach the goal, a warning signal will be given. Otherwise, a double number denoting integer representing the days the user still needed. 
 
-  10. Quit
+  10. Goal Setting
 ```
 Q: Quit
 ```
  _Input_: Command 'Q' represents terminate the programmme.
-
-### **6.Problems and possible further improvements**
-Throughout our testing, we have found the program easily dive into unexpected error and unwanted loop. We have not included enough checks on our user input, and just asssumed they will keep their input right.
-
-However, that is not true given our testing experience. Using a program without a UI is extremely easy to make mistakes. Our program still needs an efficient mechanisms to deal with them.
-
-In addition, the program is not smart enough. We still need all infomation the user could provide to locate a record, which could be avoided by better managing and monitering our data.
-
-Furthermore, lacking professional knowledge in the financial field has led us develop a tool that might not cater to the needs of a more professional user. We still need more understanding of finance and gain knowledge to develop a more powerful tool.
