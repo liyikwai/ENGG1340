@@ -47,7 +47,7 @@
   6. Setting_Budget
   User sets a monthly budget for expense. The program considers the user's average monthly income and decides for the user whether it would be an affordable one.
  
-  7. Setting_oals
+  7. Setting_Goals
   User sets a goal that he/she wishes to save using her balance (income - expense). Is the user is already bleeding money on a monthly basis, the program will warn the user. Otherwise, the program will first calculate how much time the user need if he/she spends all his/her balance on it. Then, the program will ask the user how much money hs/she is willing to save per month for it. The program will then calculate the time needed.
   
 ### **4. Compliation**
