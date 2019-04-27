@@ -97,7 +97,7 @@ G: Goal Setting
 Q: Quit
 ```
 
-1. Adding Income 
+#1. Adding Income
 ```
 I: Adding Income
 
