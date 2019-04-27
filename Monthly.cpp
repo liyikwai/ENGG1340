@@ -32,9 +32,17 @@ void Reading_record()
 void setting_goal(int Monthly_Balance)
 {
   double Goal, Monthly_Goal;
-  cout << "What's your goal?" << endl;
+  cout << "How much you need for your goal (E.G. Buying property or a vehicle)?" << endl;
   cin >> Goal;
-  cout << "That will take you at least " << Goal / Monthly_Balance << " months." << endl; // spending all budget left
+    double Estimate = Goal / Monthly_Balance;
+     if (Monthly_Balance == 0){
+       Estimate = 0;
+       cout << "Sorry, you do have any income." << endl;
+              return;
+     }
+     else{
+    cout << "That will take you at least " << Estimate << " month to accomplish." << endl; // spending all budget left
+   }
   cout << "How much per month do you want to save to achieve your goal?" << endl;
   while (true)
   {
