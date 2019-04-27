@@ -5,7 +5,7 @@
 #include "Definition.h"
 using namespace std;
 void Search(date *&Date, int count, int DD1, int MM1, int YYYY1, int DD2, int MM2, int YYYY2, int Type, double Amount1, double Amount2, string Info)
-{
+{ //by going through the record from top to bottum
   int Flag = 0; //flag if there is a match
   cout << endl
        << "          Searching Result          " << endl;
