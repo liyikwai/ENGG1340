@@ -19,7 +19,6 @@ void Append_Income(date *&Date, int count)
   int DD, MM, YYYY;
   double Income;
   string Info;
-  here: 
   cout << "Please enter the date" << endl;
   cout << "DD MM YYYY: " << endl;
   cin >> DD >> MM >> YYYY;
@@ -33,8 +32,6 @@ void Append_Income(date *&Date, int count)
   cout << "Info: " << endl;
   cout << "E: Earned Income\tF: Portfolio Income\tP: Passive Income" << endl; // Types of Income
   cin >> Info;
-  if (Info != "E" && Info != "F" && Info != "P")
-    goto here;
   Date[count].rec.Amount = Income;
   Date[count].rec.Type = 2;
   Date[count].rec.Info = Info;
@@ -45,7 +42,6 @@ void Append_Expense(date *&Date, int count)
   int DD, MM, YYYY;
   double Expense;
   string Info;
-  here:
   cout << "Please enter the date" << endl;
   cout << "DD MM YYYY: " << endl;
   cin >> DD >> MM >> YYYY;
@@ -59,8 +55,6 @@ void Append_Expense(date *&Date, int count)
   cout << "Info: " << endl;
   cout << "T: Transportation\tF: Food & Drinks\tL: Living & Others" << endl; // Types of Expense
   cin >> Info;
-  if (Info != "T" && Info != "F" && Info != "L")
-    goto here;
   Date[count].rec.Amount = Expense;
   Date[count].rec.Type = 1;
   Date[count].rec.Info = Info;
