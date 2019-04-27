@@ -212,9 +212,8 @@ Total expense 12200
 Net asset 67800
 Year : Statistical Data         Amount Percentage 
 
-2019 : Average Monthly Income   80000  \ 
-2019 : Average Monthly Expense  12200  \ 
-2019 : Net Income               67800  \ 
+2019 : Average Monthly Income   6666.67  \ 
+2019 : Average Monthly Expense  1016.67  \ 
 2019 : Earned Income            80000  100%
 2019 : Porfolio Income          0      0%
 2019 : Passive Income           0      0%
@@ -254,7 +253,13 @@ G: Goal Setting
  ```
 You are bleeding money. Please change your spending habit first!
 ```
- 
+  
+```
+How much you need for your goal (E.G. Buying property or a vehicle)?
+That will take you at least 2 month to accomplish.
+How much per month do you want to save to achieve your goal?
+That will take you 7 months to achieve!
+```
 _Input_: An double number denoting the money they need
 
 _Output_: If the user cannot reach the goal, a warning signal will be given. Otherwise, a double number denoting integer representing the days the user still needed. 
