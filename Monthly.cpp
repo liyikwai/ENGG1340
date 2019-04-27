@@ -33,7 +33,7 @@ void setting_goal(int Monthly_Balance)
   cout << "How much you need for your goal (E.G. Buying property or a vehicle)?" << endl;
   cin >> Goal;
     double Estimate = 0;
-      if (Monthly_Balance == 0)
+      if (Monthly_Balance == 0){
         cout << "Sorry, you do have any income." << endl;
           return;
      }
