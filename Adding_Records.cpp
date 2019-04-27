@@ -94,10 +94,10 @@ void Append_Expense(date *&Date, int count){ // Add a record of expense
   Date[count].rec.Info = Info;
 }
 
-void Delete(date *&Date, int &size, int DD, int MM, int YYYY, int Del_Type, int Number, string Info){
+void Delete(date *&Date, int &size, int &count, int DD, int MM, int YYYY, int Del_Type, int Number, string Info){
   date *Temp = new date [size-1];
   int k = 0;
-  size--;
+  count--;
   for (int i = 0; i < size - 1; i++){
     if(Date[i].Day == DD && Date[i].Month == MM && Date[i].Year == YYYY)
       if (Date[i].rec.Type == Del_Type && Date[i].rec.Amount == Number && Date[i].rec.Info == Info)
@@ -365,14 +365,14 @@ int main() {
         cin >> Number0;
         cout << "Info: E: Earned Income\tF: Portfolio Income\tP: Passive Income" << endl;
         cin >> Info0;
-        Delete(Date, size, DD0, MM0, YYYY0, 2, Number0, Info0);
+        Delete(Date, size, count, DD0, MM0, YYYY0, 2, Number0, Info0);
       }
       else if (Del_Type == "E"){
         cout << "Expense: " << endl;
         cin >> Number0;
         cout << "Info: T: Transportation\tF: Food & Drinks\tL: Living & Others" << endl;
         cin >> Info0;
-        Delete(Date, size, DD0, MM0, YYYY0, 1, Number0, Info0);
+        Delete(Date, size, count, DD0, MM0, YYYY0, 1, Number0, Info0);
       }
       continue;
     }
