@@ -97,7 +97,7 @@ G: Goal Setting
 Q: Quit
 ```
 
-#1. Adding Income
+# 1. Adding Income
 ```
 I: Adding Income
 
@@ -116,7 +116,7 @@ E: Earned Income	F: Portfolio Income	P: Passive Income
   _Output_: A sturct dynamic array of the records. 
 
 
-2. Adding Expense
+# 2. Adding Expense
 ```
 E: Adding Expense
 ```
@@ -134,7 +134,7 @@ T: Transportation	F: Food & Drinks	L: Living & Others
   _Output_: A sturct dynamic array of the records. The record will be saved to a file named "Records.txt".
   
   
-3. Present Information and Save it to a file
+# 3. Present Information and Save it to a file
 ```
 P: Present Information and Save it to a file
 ```
@@ -157,7 +157,7 @@ Net asset: -4500
 ``` 
    _Output_: The detail of the information
 
-4. Change Records
+# 4. Change Records
 ```
 C: Change Records
 ```
@@ -179,14 +179,14 @@ Info: E: Earned Income	F: Portfolio Income	P: Passive Income
   _Input_: For changing the data, input 3 integers representing day, month, year and amount. A string representing the type of the correspond income of expense. After that, input the new date, amount and type of this record.
 
 
-5. Delete Records
+# 5. Delete Records
 ```
 D: Delete Records
 ```
  _Input_: Command 'D' represents deleting records
  
 
-6. Search Records
+# 6. Search Records
 ```
 S: Search Records
 ```
@@ -201,7 +201,7 @@ Day Month Year  I/E     Type Amount
  _Input_: Command 'S'. 2 combinations of 3 integers representing day, month and year to specify the range of searching date. A string representing the type of the income or expense. 2 double number representing the range of the searching amount.
  _Output_: Searching information according to the range set from user's inputs
  
- 7. Report Records
+# 7. Report Records
 ```
 R: Report
 ```
@@ -224,7 +224,7 @@ Year : Statistical Data         Amount Percentage
   _Output_: Multiple lines containg different statistical parameter. Each line have 1integer denoting the year. 1 string representing the type of the record. 1 double number denoting the correspond data. 1 integer representing the percentage of the type of records.
  
  
-  8. Budget Setting
+# 8. Budget Setting
 ```
 B: Budget Setting
 ```
@@ -236,7 +236,7 @@ Please enter your monthly budget:
  _Output_: Set a monthly budget, and see if your current average monthly income can support this budget. If yes, you are told so. If not, you are advised to change your budget.
  
  
-  9. Goal Setting
+# 9. Goal Setting
 ```
 G: Goal Setting
 ```
@@ -247,7 +247,7 @@ You are bleeding money. Please change your spending habit first!
 ```
  
 
-  10. Goal Setting
+# 10. Quit
 ```
 Q: Quit
 ```
