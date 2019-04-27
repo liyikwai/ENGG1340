@@ -17,14 +17,14 @@ int main()
   double total_income = 0, total_expense = 0, net_asset = 0;
   date *Date = new date[100]; //initialization
   double Budget = -1;
-  double Monthly_Balance = 0, Monthly_Income = 0, Monthly_Expense = 0;  
-    cout << endl;
+  double Monthly_Balance = 0, Monthly_Income = 0, Monthly_Expense = 0;
   cout << "----------------------------" << endl;
   cout << "|ENGG1340 Accounting System|" << endl;
   cout << "|          Group73         |" << endl;
   cout << "----------------------------" << endl;
   while (true)
   {
+    cout << endl;
     cout << endl;
     cout << "Please enter the following commands:" << endl;
     cout << "I: Adding Income" << endl;                             // Done
@@ -71,7 +71,6 @@ int main()
       string Del_Type, Info0;
       cout << "Deleting Income or Expense? I: Income E: Expense " << endl; // Search before delete
       cin >> Del_Type;
-            cout << "Please enter the information of the record to be deleted." << endl;
       cout << "DD MM YYYY: " << endl;
       cin >> DD0 >> MM0 >> YYYY0;
       if (Del_Type == "I")
@@ -99,7 +98,6 @@ int main()
       string Change_Type, Info1;
       cout << "Change Income or Expense? I: Income E: Expense " << endl; // Search before Change
       cin >> Change_Type;
-            cout << "Please enter the information of the record to be changed." << endl;
       cout << "DD MM YYYY: " << endl;
       cin >> DD1 >> MM1 >> YYYY1;
       if (Change_Type == "I")
@@ -134,8 +132,6 @@ int main()
          << " Type "
          << "Amount" << endl;
     fout << left;
-        total_income = 0;
-          total_expense = 0;
     for (int i = 0; i < count; i++)
     {
       if (Date[i].rec.Type == 0)
@@ -162,6 +158,7 @@ int main()
     fout << "Net asset: " << net_asset << endl;
     fout.close();
     // Calculate all monthlies after all functions that could change records
+    Calculate_Monthly(Date, count, Monthly_Balance, Monthly_Income, Monthly_Expense);
     // Functions below will not change records
     if (Command == "P")
     { // Present Information
