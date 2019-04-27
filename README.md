@@ -62,12 +62,12 @@
 
 To compile
 
-$ make
+__$ make__
 
 To run
 
-$ ./Main
+__$ ./Main__
 
 To clean
 
-$ make clean
+__$ make clean__
