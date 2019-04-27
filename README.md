@@ -158,13 +158,25 @@ S: Search Records
 ```
  _Input_: Command 'S' represents search the records
  
+```
+Please enter the range of searching dates (Results between these dates): 
+(DD1 MM1 YYYY1 DD2 MM2 YYYY2): 
+Please enter the Type 
+(I for Income, E for Expense): 
+Please enter range of searching amount 
+(Amount1 Amount2): 
+Please enter the searching info 
+(T: Transportation	F: Food & Drinks	L: Living & Others): 
+
+```
+ 
  ```
           Searching Result          
 Day Month Year  I/E     Type Amount
 25  12    2018  Expense  L
 15  12    2018  Expense  L
 ```
- _Input_: Command 'S'. 2 combinations of 3 integers representing day, month and year to specify the range of searching date. A string representing the type of the income or expense. 2 double number representing the range of the searching amount.
+ _Input_: 2 combinations of 3 integers representing day, month and year to specify the range of searching date. A string representing the type of the income or expense. 2 double number representing the range of the searching amount.
  _Output_: Searching information according to the range set from user's inputs
  
  
