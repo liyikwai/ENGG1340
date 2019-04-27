@@ -4,11 +4,13 @@
 #include "Definition.h"
 using namespace std;
 
-void Delete(date *&Date, int &size, int &count, int DD, int MM, int YYYY, int Del_Type, int Number, string Info){
+void Delete(date *&Date, int &size, int &count, int DD, int MM, int YYYY, int Del_Type, int Number, string Info)
+{
   date *Temp = new date [size-1];
   int k = 0;
   count--;
-  for (int i = 0; i < size - 1; i++){
+  for (int i = 0; i < size - 1; i++)
+  {
     if(Date[i].Day == DD && Date[i].Month == MM && Date[i].Year == YYYY)
       if (Date[i].rec.Type == Del_Type && Date[i].rec.Amount == Number && Date[i].rec.Info == Info)
         k++;  // Jump over the aim
@@ -50,7 +52,6 @@ void Change(date *&Date, int size, int DD, int MM, int YYYY, int Change_Type, in
   }
   int Flag = 0; // to see if there is a match
   for (int i = 0; i < size; i++)
-  {
     if (Date[i].Day == DD && Date[i].Month == MM && Date[i].Year == YYYY)
       if (Date[i].rec.Type == Change_Type && Date[i].rec.Amount == Number && Date[i].rec.Info == Info)
       {
@@ -63,7 +64,6 @@ void Change(date *&Date, int size, int DD, int MM, int YYYY, int Change_Type, in
         break;
         Flag = 1;
       }
-  }
   if (Flag == 0) //there is no match
     cout << "No such records found" << endl;
 }
