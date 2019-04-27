@@ -128,7 +128,6 @@ Please enter the amount
 Income: 
 Please enter the information of the income
 Info: E: Earned Income	F: Portfolio Income	P: Passive Income
-No such records found
 
 Please enter the following commands:
 I: Adding Income
@@ -173,9 +172,8 @@ Total expense 5900
 Net asset 34100
 Year : Statistical Data         Amount Percentage 
 
-2019 : Average Monthly Income   40000  \ 
-2019 : Average Monthly Expense  5900   \ 
-2019 : Net Income               34100  \ 
+2019 : Average Monthly Income   3333.33  \ 
+2019 : Average Monthly Expense  491.667  \ 
 2019 : Earned Income            40000  100%
 2019 : Porfolio Income          0      0%
 2019 : Passive Income           0      0%
@@ -373,9 +371,8 @@ Total expense 12200
 Net asset 67800
 Year : Statistical Data         Amount Percentage 
 
-2019 : Average Monthly Income   80000  \ 
-2019 : Average Monthly Expense  12200  \ 
-2019 : Net Income               67800  \ 
+2019 : Average Monthly Income   6666.67  \ 
+2019 : Average Monthly Expense  1016.67  \ 
 2019 : Earned Income            80000  100%
 2019 : Porfolio Income          0      0%
 2019 : Passive Income           0      0%
