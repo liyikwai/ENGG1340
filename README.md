@@ -1,14 +1,14 @@
 # __ENGG1340 Project__
 *Group 73: Huang Sheng 3035534103, Li Yik Wai 3035566015*
 
-### **1.Problem Statement**
+### **1. Problem Statement**
   In recent years, as information technology rapidly develops, digital tools are widely available in various areas, including the financial sector. Multinational corporations, as well as individual citizens, are in desperate need of digital accounting systems to better facilitate their wealth management. 
 
   The problem is, even though there have been products managing users' wealth by various means, the available tools are unsatisfactory in personalization to meet some needs that users may have in the daily financial management, such as budget setting according to the users' income status, spending patterns or help users to set their financial goal. 
 
   This programme acts as an accounting system to help users manage their financial state. By processing the records of income and expense as well as other financial information through this programme, users can have a better understanding and management of their wealth. 
   
-### **2.Problem Setting**
+### **2. Problem Setting**
   We assume that the maximum number of the user input is less than 100,000,000 to avoid overflow. Besides, Income and expense received should be rounded to two decimals. In addition, the user is expected not to input negative numbers. Furthermore, the information provided by user should be meaningful and valid. For example, the user cannot input invalid dates like 32/02/2019 (32nd February 2019). 
  
   We divide this problem into 7 functionalities. 
@@ -26,7 +26,7 @@
   
   7. _Setting and Estimating the Goal_: This function allows the user to set up his or her goals such as buying a property or other products. After that, it will estimate whether the user are capable to achieve the goal. If they are able to do so, it will calculate the time they needed.
 
-### **3.Program Feature**
+### **3. Program Feature**
   Input and output specification
   
   Users are strongly advised to see the information below and follow the instructions on input during use.
@@ -58,7 +58,7 @@
      - _Input_: Command 'G' represent budget setting, a string representing the user's goal and an double number denoting the money they need
      - _Output_: If the user cannot reach the goal, a warning signal will be given. Otherwise, a double number denoting integer representing the days the user still needed. 
 
-### **4.Compliation**
+### **4. Compliation**
 
 To compile
 
