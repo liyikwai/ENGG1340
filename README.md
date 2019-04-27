@@ -248,7 +248,7 @@ Q: Quit
 ```
  _Input_: Command 'Q' represents terminate the programmme.
 
-### **Problems and possible further improvements**
+### **6.Problems and possible further improvements**
 Throughout our testing, we have found the program easily dive into unexpected error and unwanted loop. We have not included enough checks on our user input, and just asssumed they will keep their input right.
 
 However, that is not true given our testing experience. Using a program without a UI is extremely easy to make mistakes. Our program still needs an efficient mechanisms to deal with them.
