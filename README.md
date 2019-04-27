@@ -111,14 +111,14 @@ Info:
 E: Earned Income	F: Portfolio Income	P: Passive Income
 ```
   _Input_: 3 integer numbers indicating the day, month, year, a double numbers denoting the user's income or expenses,  a string denoting income source or expense purposes.
-  _Output_: A sturct dynamic array of the records. 
+  _Output_: A sturct dynamic array of the records. The record will be saved to a file named "Records.txt".
 
 
 2. Adding Expense
 ```
 E: Adding Expense
 ```
- _Input_: _Input_: Command 'E' represents adding income or expenses
+ _Input_: _Input_: Command 'E' represents adding expenses. 
  
  ```
 DD MM YYYY: 
@@ -136,7 +136,7 @@ T: Transportation	F: Food & Drinks	L: Living & Others
 ```
 P: Present Information and Save it to a file
 ```
-   _Input_: Command 'P' represents adding income or expenses
+   _Input_: Command 'P' represents show the information of the records
   
 ```
           Financial Record           
@@ -153,7 +153,7 @@ Net asset: -4500
 (Financial_Record.txt has been created successfully) 
 
 ``` 
-   _Output_: The detail of the information
+   _Output_: The detail of the records
 
 4. Change Records
 ```
@@ -175,6 +175,7 @@ Please enter the information of the income
 Info: E: Earned Income	F: Portfolio Income	P: Passive Income
 ```
   _Input_: For changing the data, input 3 integers representing day, month, year and amount. A string representing the type of the correspond income of expense. After that, input the new date, amount and type of this record.
+  _Output_: A changed sturct dynamic array of the records.
 
 
 5. Delete Records
@@ -188,7 +189,7 @@ D: Delete Records
 ```
 S: Search Records
 ```
- _Input_: Command 'D' represents deleting records
+ _Input_: Command 'S' represents search the records
  
  ```
           Searching Result          
@@ -199,11 +200,12 @@ Day Month Year  I/E     Type Amount
  _Input_: Command 'S'. 2 combinations of 3 integers representing day, month and year to specify the range of searching date. A string representing the type of the income or expense. 2 double number representing the range of the searching amount.
  _Output_: Searching information according to the range set from user's inputs
  
+ 
  7. Report Records
 ```
 R: Report
 ```
- _Input_: Command 'D' represents deleting records
+ _Input_: Command 'R' represents reporting records
  
   ```
 Year : Statistical Data         Amount Percentage 
@@ -226,10 +228,14 @@ Year : Statistical Data         Amount Percentage
 ```
 B: Budget Setting
 ```
- _Input_: Command 'D' represents deleting records
+ _Input_: Command 'B' represents setting the budget.
  
 ```
 Please enter your monthly budget: 
+```
+
+```
+Beyond Your financial capability! Please reset your budget! 
 ```
  _Output_: Set a monthly budget, and see if your current average monthly income can support this budget. If yes, you are told so. If not, you are advised to change your budget.
  
@@ -238,14 +244,16 @@ Please enter your monthly budget:
 ```
 G: Goal Setting
 ```
- _Input_: Command 'G' represents setting goal
+ _Input_: Command 'G' represents setting the goal
  
  ```
 You are bleeding money. Please change your spending habit first!
 ```
  
+_Input_: An double number denoting the money they need
+_Output_: If the user cannot reach the goal, a warning signal will be given. Otherwise, a double number denoting integer representing the days the user still needed. 
 
-  10. Goal Setting
+  10. Quit
 ```
 Q: Quit
 ```
