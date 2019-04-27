@@ -98,7 +98,6 @@ Q: Quit
 1. Adding Income 
 ```
 I: Adding Income
-
 ```
   _Input_: _Input_: Command 'I' represents adding income
 ```
@@ -182,8 +181,8 @@ Info: E: Earned Income	F: Portfolio Income	P: Passive Income
 ```
 D: Delete Records
 ```
- _Input_: Command 'D' represents deleting records
- 
+ _Input_: For deleting the datas,enter command 'D'. Then, input the day, month, year, amount and type of the income of expense to locate the position of the record to be deleted. 
+ _Output_: A new struct dynamic array of the record after deleting.
 
 6. Search Records
 ```
@@ -237,6 +236,10 @@ Please enter your monthly budget:
 ```
 Beyond Your financial capability! Please reset your budget! 
 ```
+
+```
+You can afford it. 
+```
  _Output_: Set a monthly budget, and see if your current average monthly income can support this budget. If yes, you are told so. If not, you are advised to change your budget.
  
  
@@ -258,3 +261,12 @@ _Output_: If the user cannot reach the goal, a warning signal will be given. Oth
 Q: Quit
 ```
  _Input_: Command 'Q' represents terminate the programmme.
+
+### **Problems and possible further improvements**
+Throughout our testing, we have found the program easily dive into unexpected error and unwanted loop. We have not included enough checks on our user input, and just asssumed they will keep their input right.
+
+However, that is not true given our testing experience. Using a program without a UI is extremely easy to make mistakes. Our program still needs an efficient mechanisms to deal with them.
+
+In addition, the program is not smart enough. We still need all infomation the user could provide to locate a record, which could be avoided by better managing and monitering our data.
+
+Furthermore, lacking professional knowledge in the financial field has led us develop a tool that might not cater to the needs of a more professional user. We still need more understanding of finance and gain knowledge to develop a more powerful tool.
