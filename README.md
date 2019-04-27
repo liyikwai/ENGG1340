@@ -110,15 +110,19 @@ P: Present Information and Save it to a file
 ```
           Financial Record           
 Day Month Year  I/E     Type Amount
-25  12    2018  Expense L    10000
-15  12    2018  Expense L    1000 
-10  12    2018  Expense T    500  
-2   12    2018  Income  E    7000 
+28  2     2019  Expense L    4000 
+28  2     2019  Expense F    2000 
+28  2     2019  Expense T    300  
+1   2     2019  Income  E    40000
+30  1     2019  Expense F    3000 
+30  1     2019  Expense L    2500 
+30  1     2019  Expense T    400  
+1   1     2019  Income  E    40000
 (Income  E: Earned Income;  F: Portfolio Income; P: Passive Income 
  Expense T: Transportation; F: Food & Drinks     L: Living & Others)
-Total income: 7000
-Total expense: 11500
-Net asset: -4500
+Total income: 80000
+Total expense: 12200
+Net asset: 67800
 (Financial_Record.txt has been created successfully) 
 ``` 
    _Output_: The detail of the records
@@ -190,16 +194,21 @@ R: Report
  _Input_: Command 'R' represents reporting records
  
   ```
+          Financial Report          
+Total income: 80000
+Total expense 12200
+Net asset 67800
 Year : Statistical Data         Amount Percentage 
-2018 : Average Monthly Income   7000   \ 
-2018 : Average Monthly Expense  11500  \ 
-2018 : Net Income               -4500  \ 
-2018 : Earned Income            7000   100%
-2018 : Porfolio Income          0      0%
-2018 : Passive Income           0      0%
-2018 : Transportation Expense   500    4.34783%
-2018 : Food & Drinks            0      0%
-2018 : Living & Others          11000  95.6522%
+
+2019 : Average Monthly Income   80000  \ 
+2019 : Average Monthly Expense  12200  \ 
+2019 : Net Income               67800  \ 
+2019 : Earned Income            80000  100%
+2019 : Porfolio Income          0      0%
+2019 : Passive Income           0      0%
+2019 : Transportation Expense   700    5.7377%
+2019 : Food & Drinks            5000   40.9836%
+2019 : Living & Others          6500   53.2787%
 ```
   _Input_: A struct dynamic array containing information of a series of the reords .
   
