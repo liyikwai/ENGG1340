@@ -47,6 +47,23 @@ R: Report
 B: Budget Setting
 G: Goal Setting
 Q: Quit
+
+How much you need for your goal (E.G. Buying property or a vehicle)?
+That will take you at least 2 month to accomplish.
+How much per month do you want to save to achieve your goal?
+That will take you 7 months to achieve!
+
+Please enter the following commands:
+I: Adding Income
+E: Adding Expense
+P: Present Information and Save it to a file
+C: Change Records
+D: Delete Records
+S: Search Records
+R: Report
+B: Budget Setting
+G: Goal Setting
+Q: Quit
 Please enter the date
 DD MM YYYY: 
 Please enter the amount
@@ -162,9 +179,8 @@ Total expense 11500
 Net asset -4500
 Year : Statistical Data         Amount Percentage 
 
-2018 : Average Monthly Income   7000   \ 
-2018 : Average Monthly Expense  11500  \ 
-2018 : Net Income               -4500  \ 
+2018 : Average Monthly Income   583.333  \ 
+2018 : Average Monthly Expense  958.333  \ 
 2018 : Earned Income            7000   100%
 2018 : Porfolio Income          0      0%
 2018 : Passive Income           0      0%
