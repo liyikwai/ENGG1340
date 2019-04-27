@@ -28,6 +28,7 @@
 
 ### **3.Program Feature**
   Input and output specification
+  
   Users are strongly advised to see the information below and follow the instructions on input during use.
   1. Adding_Records
      - _Input_: Command 'I' or 'E' represents adding income or expenses, 3 integer numbers indicating the day, month, year, a double numbers denoting the user's income or expenses,  a string denoting income source or expense purposes. 
