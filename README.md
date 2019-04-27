@@ -143,6 +143,7 @@ Please enter the information of the income
 Info: E: Earned Income	F: Portfolio Income	P: Passive Income
 ```
   _Input_: For changing the data, input 3 integers representing day, month, year and amount. A string representing the type of the correspond income of expense. After that, input the new date, amount and type of this record.
+  
   _Output_: A changed sturct dynamic array of the records.
   
 #### 5. Delete Records
@@ -150,6 +151,7 @@ Info: E: Earned Income	F: Portfolio Income	P: Passive Income
 D: Delete Records
 ```
  _Input_: For deleting the datas,enter command 'D'. Then, input the day, month, year, amount and type of the income of expense to locate the position of the record to be deleted. 
+ 
  _Output_: A new struct dynamic array of the record after deleting.
  
 #### 6. Search Records
