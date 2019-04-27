@@ -59,7 +59,6 @@ void Report(date *&Date, int count)
       cout << left;
       cout << Year << setw(28) << " : Average Monthly Income " << setw(5) << Annual_Income/12 << "  \\ " << endl;
       cout << Year << setw(28) << " : Average Monthly Expense " << setw(5) << Annual_Expense/12 << "  \\ " << endl;
-      cout << Year << setw(28) << " : Net Income " << setw(5) << Annual_Income - Annual_Expense/12 << "  \\ " << endl;
       cout << Year << setw(28) << " : Earned Income " << setw(5) << Income_E << "  " << P_Earned << "%" << endl;
       cout << Year << setw(28) << " : Porfolio Income " << setw(5) << Income_F << "  " << P_Porfolio  << "%" << endl;
       cout << Year << setw(28) << " : Passive Income " << setw(5) << Income_P << "  " << P_Passive << "%" << endl;
