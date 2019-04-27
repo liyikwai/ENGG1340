@@ -179,6 +179,7 @@ Day Month Year  I/E     Type Amount
 15  12    2018  Expense  L
 ```
  _Input_: 2 combinations of 3 integers representing day, month and year to specify the range of searching date. A string representing the type of the income or expense. 2 double number representing the range of the searching amount.
+ 
  _Output_: Searching information according to the range set from user's inputs
  
  
@@ -201,6 +202,7 @@ Year : Statistical Data         Amount Percentage
 2018 : Living & Others          11000  95.6522%
 ```
   _Input_: A struct dynamic array containing information of a series of the reords .
+  
   _Output_: Multiple lines containg different statistical parameter. Each line have 1integer denoting the year. 1 string representing the type of the record. 1 double number denoting the correspond data. 1 integer representing the percentage of the type of records.
  
  
@@ -233,6 +235,7 @@ You are bleeding money. Please change your spending habit first!
 ```
  
 _Input_: An double number denoting the money they need
+
 _Output_: If the user cannot reach the goal, a warning signal will be given. Otherwise, a double number denoting integer representing the days the user still needed. 
 
 #### 10. Quit
