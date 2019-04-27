@@ -18,13 +18,13 @@ int main()
   date *Date = new date[100]; //initialization
   double Budget = -1;
   double Monthly_Balance = 0, Monthly_Income = 0, Monthly_Expense = 0;
+  cout << endl;
   cout << "----------------------------" << endl;
   cout << "|ENGG1340 Accounting System|" << endl;
   cout << "|          Group73         |" << endl;
   cout << "----------------------------" << endl;
   while (true)
   {
-    cout << endl;
     cout << endl;
     cout << "Please enter the following commands:" << endl;
     cout << "I: Adding Income" << endl;                             // Done
@@ -69,6 +69,7 @@ int main()
       int DD0, MM0, YYYY0;
       double Number0;
       string Del_Type, Info0;
+      cout << "Please enter the information of the record to be deleted." << endl;
       cout << "Deleting Income or Expense? I: Income E: Expense " << endl; // Search before delete
       cin >> Del_Type;
       cout << "DD MM YYYY: " << endl;
@@ -96,13 +97,14 @@ int main()
       int DD1, MM1, YYYY1;
       double Number1;
       string Change_Type, Info1;
+      cout << "Please enter the information of the record to be changed " << endl; 
       cout << "Change Income or Expense? I: Income E: Expense " << endl; // Search before Change
       cin >> Change_Type;
       cout << "DD MM YYYY: " << endl;
       cin >> DD1 >> MM1 >> YYYY1;
       if (Change_Type == "I")
       {
-        cout << "Income: " << endl;
+        cout << "Amount: " << endl;
         cin >> Number1;
         cout << "Info: E: Earned Income\tF: Portfolio Income\tP: Passive Income" << endl;
         cin >> Info1;
@@ -110,7 +112,7 @@ int main()
       }
       else if (Change_Type == "E")
       {
-        cout << "Expense: " << endl;
+        cout << "Amount: " << endl;
         cin >> Number1;
         cout << "Info: T: Transportation\tF: Food & Drinks\tL: Living & Others" << endl;
         cin >> Info1;
@@ -121,6 +123,8 @@ int main()
     Sort(Date, count); //Sort after all functions that could change records
     //Record_to_File
     cout << endl;
+    total_income = 0;
+    total_expense = 0;
     ofstream fout;
     fout.open("Financial_Record.txt");
     if (fout.fail())
